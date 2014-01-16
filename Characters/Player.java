@@ -22,7 +22,7 @@ public class Player {
     public int getDex()  {return _dex;}
     public int getInt()  {return _int;}
     public int getFth()  {return _fth;}
-    public int getPer()  {return _pet;}
+    public int getPer()  {return _per;}
     public int getCon()  {return _con;}
     public int getXcor() {return _xcor;}
     public int getYcor() {return _ycor;}
