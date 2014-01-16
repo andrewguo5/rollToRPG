@@ -1,3 +1,5 @@
+import java.lang.Math;
+
 public class Player {
 
     //Instance Variables
@@ -13,8 +15,8 @@ public class Player {
 
     //Constructor
     public Player() {
-	_xcor = (int)(Math.randomInt * 8);
-	_ycor = (int)(Math.randomInt * 8);
+	_xcor = (int)(Math.random() * 8);
+	_ycor = (int)(Math.random() * 8);
     }
 
     //accessor methods
