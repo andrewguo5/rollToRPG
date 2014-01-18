@@ -5,7 +5,7 @@ public class Map {
         
     private Tile[][] _map = new Tile[8][8];
     private Player[][] _players = new Player[8][8];
-    //////    private ArrayList _playerList; //probably will be taken from a different class, perhaps one that handles character creation
+    private ArrayList<Player> _playerList; //probably will be taken from a different class, perhaps one that handles character creation
 
 
     /*Constructor
@@ -13,6 +13,10 @@ public class Map {
       Should create an 8x8 double array of type Player, storing a Player in a random location and null in other locations
      */
     public Map(){//int numPlayers) { //takes number of players upon the completion for character creation. generates a map based on the number of players
+	/*Player Bob = new Player("bob");
+	  _playerList.add(Bob);*/
+    
+	
 	for (Tile[] x : _map) {
 	    for (int n = 0; n < x.length; n++) {
 		int randInt = (int)(Math.random() * 4);
@@ -33,31 +37,38 @@ public class Map {
 	/////_playerList = new ArrayList(); //I want to create a list of all the players
 	/////updatePlayers(); //Set all players to their respective coordinates
     }		 
-    /*
+    
     //Movement related methods
+    public void addPlayer( Player p ) {
+	_playerList.add( p ); }
+
     public void updatePlayers() { //creates players at their player coordinates
 	for (Player richard : _playerList) {
-	    //int xcor = richard.getXcor();
-	    //int ycor = richard.getYcor();
+	    
+	    int _newXcor = richard.getMX();
+	    int _newYcor = richard.getMY();
 	    Player freshRichard = richard;
-	    //_players[xcor][ycor] = new Player();//currently creates only default players, I need this to clone the player and make it appear at the new tile.
-	    _players[xcor][ycor] = freshRichard;
+	    _players[_newXcor][_newYcor] = new Player(richard.getName());//currently creates only default players, I need this to clone the player and make it appear at the new tile.
+	    _players[_newXcor][_newYcor] = freshRichard;
+	    setNull( richard.getXcor(), richard.getYcor() );
+	    richard.setXcor( _newXcor );
+	    richard.setYcor( _newYcor );
 	}
     }
 
     public void setNull(int x, int y) {//sets a tile to null in the player 8x8 array. This kills the player, usually during moves, to recreate it with updatePlayers()
-	_players[xcor][ycor] = null;
+	_players[x][y] = null;
     }
-    */
+    
     //Coordinate based Accessors
     public Tile getTile(int x, int y) {
 	return _map[x][y];
     }
-    /*
+    
     public Player getPlayer(int x, int y) {
 	return _players[x][y];
     }
-    */
+    
 
     public String toString() {
 	String retStr = "";
@@ -86,6 +97,14 @@ public class Map {
     public static void main (String[] args) {
 	Map xyzz = new Map();
 	System.out.println( xyzz );
+
+	Player Zyzz = new Player("Zyzz");
+	//xyzz.addPlayer( Zyzz );
+	//Zyzz.move(4,5);
+	//xyzz.updatePlayers();
+	
+	System.out.println( Zyzz.getXcor() );
+	System.out.println( Zyzz.getYcor() );
     }
 
 

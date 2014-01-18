@@ -1,8 +1,10 @@
 import java.lang.Math;
 
-public class Player {
+public class Player extends Map {
 
     //Instance Variables
+    protected String _name;
+    
     protected int _str;
     protected int _dex;
     protected int _int;
@@ -13,10 +15,16 @@ public class Player {
     protected int _xcor;
     protected int _ycor;
 
+    protected int _moveX;
+    protected int _moveY;
+
     //Constructor
-    public Player() {
+    public Player( String name ) {
+	_name = name; 
 	_xcor = (int)(Math.random() * 8);
 	_ycor = (int)(Math.random() * 8);
+	_moveX = _xcor;
+	_moveY = _ycor;
     }
 
     //accessor methods
@@ -28,6 +36,9 @@ public class Player {
     public int getCon()  {return _con;}
     public int getXcor() {return _xcor;}
     public int getYcor() {return _ycor;}
+    public int getMX() {return _moveX; }
+    public int getMY() {return _moveY; }
+    public String getName() { return _name; }
 
     //mutator methods
     public int setStr(int val) {
@@ -70,5 +81,9 @@ public class Player {
 	_ycor = val;
 	return oldVal;
     }
+    public void move( int x, int y ) {
+	_moveX = x;
+	_moveY = y;
+    }	
 
 }
