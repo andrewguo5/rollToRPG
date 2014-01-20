@@ -55,9 +55,10 @@ public class Player {
 
     //mutator methods
     public int setHP(int val) {
-	_int oldVal = HP;
+	int oldVal = HP;
 	HP = val;
 	return oldVal;
+    }
 
     public int setStr(int val) {
 	int oldVal = _str;
