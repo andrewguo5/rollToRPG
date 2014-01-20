@@ -20,7 +20,9 @@ public class Driver {
 	
 	while (map.getplayerList().size() > 1) {
 	    for (Player fred: map.getplayerList()) {
-		System.out.println("hey-o!");
+		System.out.println("TEST");
+		TestFrame test = new TestFrame();
+	        String Test = Keyboard.readString();
 	    }
 	}
 
