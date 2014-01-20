@@ -5,7 +5,7 @@ public class Map {
         
     private Tile[][] _map = new Tile[8][8];
     private Player[][] _players = new Player[8][8];
-    private ArrayList<Player> _playerList; //probably will be taken from a different class, perhaps one that handles character creation
+    private ArrayList<Player> _playerList = new ArrayList<Player>(); //probably will be taken from a different class, perhaps one that handles character creation
 
 
     /*Constructor
@@ -99,10 +99,23 @@ public class Map {
 	System.out.println( xyzz );
 
 	Player Zyzz = new Player("Zyzz");
-	//xyzz.addPlayer( Zyzz );
-	//Zyzz.move(4,5);
-	//xyzz.updatePlayers();
+	xyzz.addPlayer( Zyzz );
+	int a = xyzz._playerList.get(0).getXcor(); 
+	int b = xyzz._playerList.get(0).getYcor(); 
+	for( Player x : xyzz._playerList) {
+	    System.out.println(x.getName());
+	    a = x.getXcor();
+	    b = x.getYcor();
+
+	    System.out.println(a);
+	    System.out.println(b);}
 	
+	
+	Zyzz.move(4,5);
+	xyzz.updatePlayers();
+	
+	System.out.println( xyzz._players[a][b] );
+
 	System.out.println( Zyzz.getXcor() );
 	System.out.println( Zyzz.getYcor() );
     }
