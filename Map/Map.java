@@ -45,7 +45,11 @@ public class Map {
 	}
 	updatePlayers();
  
-    }		 
+    }		
+    //ACCESSOR
+    public ArrayList<Player> getplayerList() {
+	return _playerList;
+    }
     
     //Movement related methods
     public void addPlayer( Player p ) {
@@ -85,7 +89,7 @@ public class Map {
 	return _players[x][y];
     }
 
-    
+
     public boolean isPlayerHere(int x, int y) {
 	return _players[x][y] != null;
     }    

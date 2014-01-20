@@ -1,0 +1,22 @@
+import cs1.Keyboard;
+
+public class Driver {
+    public static void main (String[] args) {
+	System.out.print("Enter the name of player1: ");
+	String name1 = Keyboard.readString();
+	System.out.print("\nEnter the name of player2: ");
+	String name2 = Keyboard.readString();
+	System.out.print("\nEnter the name of player3: ");
+	String name3 = Keyboard.readString();
+	
+	Map map = new Map(name1, name2, name3);
+	
+	while (map.getplayerList().size() > 1) {
+	    for (Player fred: map.getplayerList()) {
+		System.out.println("hey-o!");
+	    }
+	}
+
+
+    }
+}
