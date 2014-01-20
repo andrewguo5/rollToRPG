@@ -12,7 +12,7 @@ public class Map {
       Should create an 8x8 double array full of Tiles, stored in _map
       Should create an 8x8 double array of type Player, storing a Player in a random location and null in other locations
      */
-    public Map(){//int numPlayers) { //takes number of players upon the completion for character creation. generates a map based on the number of players
+    public Map( String N1, String N2, String N3 ){//int numPlayers) { //takes number of players upon the completion for character creation. generates a map based on the number of players
 	/*Player Bob = new Player("bob");
 	  _playerList.add(Bob);*/
     
@@ -34,8 +34,17 @@ public class Map {
 		}
 	    }
 	}
-	/////_playerList = new ArrayList(); //I want to create a list of all the players
-	/////updatePlayers(); //Set all players to their respective coordinates
+	_playerList.add( new Player( N1 ) );
+	_playerList.add( new Player( N2 ) );
+	_playerList.add( new Player( N3 ) );
+	
+	for ( Player p : _playerList ) {
+	    int x = (int)(8 * Math.random());
+	    int y = (int)(8 * Math.random());
+	    p.move(x,y);
+	}
+	updatePlayers();
+ 
     }		 
     
     //Movement related methods
@@ -48,11 +57,14 @@ public class Map {
 	    int _newXcor = richard.getMX();
 	    int _newYcor = richard.getMY();
 	    Player freshRichard = richard;
-	    _players[_newXcor][_newYcor] = new Player(richard.getName());//currently creates only default players, I need this to clone the player and make it appear at the new tile.
+	    
+	    _players[_newXcor][_newYcor] = new Player(richard.getName());
 	    _players[_newXcor][_newYcor] = freshRichard;
+	    
 	    setNull( richard.getXcor(), richard.getYcor() );
-	    _map[richard.getXcor()][richard.getYcor].setisPlayerHere( false );
-	       _map[_newXcor][_newYcor].setisPlayerHere( true );
+	    
+	    _map[richard.getXcor()][richard.getYcor()].setisPlayerHere( false );
+	    _map[_newXcor][_newYcor].setisPlayerHere( true );
 
 	    richard.setXcor( _newXcor );
 	    richard.setYcor( _newYcor );
@@ -78,6 +90,21 @@ public class Map {
 	return _players[x][y] != null;
     }    
 
+    public void killPlayer( String Pname ) {
+	for ( int n = 0; n < _playerList.size(); n++ ) {
+	    Player p = _playerList.get(n);
+	    if ( p.getName().equals( Pname ) ) {
+		setNull( p.getXcor(), p.getYcor() );
+		_playerList.remove(n);
+		break;
+	    }
+	}
+    }
+		
+	
+
+	
+	
     //    public void Harvest( Player p ) {
 	
 
@@ -106,7 +133,7 @@ public class Map {
     }
 
     public static void main (String[] args) {
-	Map xyzz = new Map();
+	Map xyzz = new Map("fred","jon","tom");
 	System.out.println( xyzz );
 
   

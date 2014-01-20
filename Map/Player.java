@@ -1,9 +1,10 @@
 import java.lang.Math;
 
-public abstract class Player extends Map {
+public class Player {
 
     //Instance Variables
     protected String _name;
+    protected int HP;
     
     protected int _str;
     protected int _dex;
@@ -19,6 +20,8 @@ public abstract class Player extends Map {
 
     //Constructor
     public Player( String name ) {
+	
+	HP = 100;
 	
 	_str = 10;
 	_dex = 10;
