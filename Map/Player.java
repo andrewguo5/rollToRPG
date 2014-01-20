@@ -1,6 +1,6 @@
 import java.lang.Math;
 
-public class Player extends Map {
+public abstract class Player extends Map {
 
     //Instance Variables
     protected String _name;
@@ -19,12 +19,22 @@ public class Player extends Map {
 
     //Constructor
     public Player( String name ) {
+	
+	_str = 10;
+	_dex = 10;
+	_int = 10;
+	_fth = 10;
+	_per = 10;
+	_con = 10;
+
 	_name = name; 
 	_xcor = (int)(Math.random() * 8);
 	_ycor = (int)(Math.random() * 8);
 	_moveX = _xcor;
 	_moveY = _ycor;
     }
+
+    //public void ability()
 
     //accessor methods
     public int getStr()  {return _str;}
@@ -84,5 +94,6 @@ public class Player extends Map {
 	_moveX = x;
 	_moveY = y;
     }	
+    
 
 }

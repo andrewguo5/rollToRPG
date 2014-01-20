@@ -51,8 +51,12 @@ public class Map {
 	    _players[_newXcor][_newYcor] = new Player(richard.getName());//currently creates only default players, I need this to clone the player and make it appear at the new tile.
 	    _players[_newXcor][_newYcor] = freshRichard;
 	    setNull( richard.getXcor(), richard.getYcor() );
+	    _map[richard.getXcor()][richard.getYcor].setisPlayerHere( false );
+	       _map[_newXcor][_newYcor].setisPlayerHere( true );
+
 	    richard.setXcor( _newXcor );
 	    richard.setYcor( _newYcor );
+	    
 	}
     }
 
@@ -68,10 +72,14 @@ public class Map {
     public Player getPlayer(int x, int y) {
 	return _players[x][y];
     }
+
     
     public boolean isPlayerHere(int x, int y) {
 	return _players[x][y] != null;
     }    
+
+    //    public void Harvest( Player p ) {
+	
 
     public String toString() {
 	String retStr = "";
@@ -101,26 +109,7 @@ public class Map {
 	Map xyzz = new Map();
 	System.out.println( xyzz );
 
-	Player Zyzz = new Player("Zyzz");
-	xyzz.addPlayer( Zyzz );
-	int a = xyzz._playerList.get(0).getXcor(); 
-	int b = xyzz._playerList.get(0).getYcor(); 
-	for( Player x : xyzz._playerList) {
-	    System.out.println(x.getName());
-	    a = x.getXcor();
-	    b = x.getYcor();
-
-	    System.out.println(a);
-	    System.out.println(b);}
-	
-	
-	Zyzz.move(4,5);
-	xyzz.updatePlayers();
-	
-	System.out.println( xyzz._players[a][b] );
-
-	System.out.println( Zyzz.getXcor() );
-	System.out.println( Zyzz.getYcor() );
+  
     }
 
 
