@@ -1,10 +1,10 @@
 public class Forest extends Tile {
 
     public String closeUp() {
-	return "This is a forest.";
+	return "A dense forest. Sunlight streams through the canopy above, revealing brushy undergrowth and faint tracks etched into the ground. Birds chirp and flit from branch to branch above your head.";
     }
     public String farAway() {
-	return "It looks like a forest";
+	return "In the distance, it looks like the beginnings of a large forest.";
     }
 
 

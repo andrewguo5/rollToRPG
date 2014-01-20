@@ -1,10 +1,10 @@
 public class Plains extends Tile {
 
     public String closeUp() {
-	return "This is a grassy plain.";
+	return "You are walking in the midst of a grassy plain. Slight breezes make wave patterns on the wild grass. The air is filled with the sound of grass blades brushing against another.";
     }
     public String farAway() {
-	return "It looks like a grassy plain";
+	return "There lies a grassy plain.";
     }
 
 
