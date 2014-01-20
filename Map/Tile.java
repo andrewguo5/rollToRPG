@@ -11,10 +11,9 @@ public abstract class Tile {
   
      */
     
-    public Tile() {//***SHOULD BE INSTANTIATED AFTER PLAYER ARRAY***
-        /////isPlayerHere();
+    public Tile() {
+        _isPlayerHere = false;
 	_used = false;
-	//_item -> some sort of random selection of a set of items
     }
     
     //Accessors//
@@ -23,19 +22,16 @@ public abstract class Tile {
     public int getXcor() {return _xcor;}
     public int getYcor() {return _ycor;}
 
-    //Checks
-    /*
-     public void isPlayerHere() {
-   	_isPlayerHere = Map.getPlayer(_xcor, _ycor) != null;
-      }
-     */
-    
     //Mutator
     public void setUsed(boolean h) {
 	_used = h;
     }
+    
+    public boolean setisPlayerHere(boolean h) {
+	_isPlayerHere = h;
+	return !h;
+    }
 	    
-
     //Methods
     abstract String closeUp();     
     // abstract Item findItem();

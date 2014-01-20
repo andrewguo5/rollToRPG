@@ -11,7 +11,6 @@ public class Player extends Map {
     protected int _fth;
     protected int _per;
     protected int _con;
-    //protected Item[] inventory;
     protected int _xcor;
     protected int _ycor;
 

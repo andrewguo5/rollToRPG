@@ -69,6 +69,9 @@ public class Map {
 	return _players[x][y];
     }
     
+    public boolean isPlayerHere(int x, int y) {
+	return _players[x][y] != null;
+    }    
 
     public String toString() {
 	String retStr = "";
