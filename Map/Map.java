@@ -94,6 +94,15 @@ public class Map {
 	return _players[x][y] != null;
     }    
 
+    public void attack( String Pname, int dmg  ) {
+	for ( int n = 0; n < _playerList.size(); n++ ) {
+	    Player p = _playerList.get(n);
+	    if ( p.getName().equals( Pname ) ) {
+		p.setHP( p.getHP() - dmg );
+	    }
+	}
+    }
+
     public void killPlayer( String Pname ) {
 	for ( int n = 0; n < _playerList.size(); n++ ) {
 	    Player p = _playerList.get(n);

@@ -40,6 +40,7 @@ public class Player {
     //public void ability()
 
     //accessor methods
+    public int getHP() { return HP; }
     public int getStr()  {return _str;}
     public int getDex()  {return _dex;}
     public int getInt()  {return _int;}
@@ -53,6 +54,11 @@ public class Player {
     public String getName() { return _name; }
 
     //mutator methods
+    public int setHP(int val) {
+	_int oldVal = HP;
+	HP = val;
+	return oldVal;
+
     public int setStr(int val) {
 	int oldVal = _str;
 	_str = val;
