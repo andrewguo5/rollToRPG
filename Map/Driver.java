@@ -6,9 +6,16 @@ public class Driver {
 	String name1 = Keyboard.readString();
 	System.out.print("\nEnter the name of player2: ");
 	String name2 = Keyboard.readString();
+	while (name1.equals(name2) ) {
+	    System.out.print("\nName already exists! New name: ");
+	    name2 = Keyboard.readString();
+	}
 	System.out.print("\nEnter the name of player3: ");
 	String name3 = Keyboard.readString();
-	
+	while (name3.equals(name2) || name3.equals(name1)) {
+	    System.out.print("\nName already exists! New name: ");
+	    name3 = Keyboard.readString();
+	}	
 	Map map = new Map(name1, name2, name3);
 	
 	while (map.getplayerList().size() > 1) {
