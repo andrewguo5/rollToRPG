@@ -50,6 +50,8 @@ public class Map {
     public ArrayList<Player> getplayerList() {
 	return _playerList;
     }
+    public Tile[][] getTileMap() { return _map; }
+    public Player[][] getPlayerMap() { return _players; }
     
     //Movement related methods
     public void addPlayer( Player p ) {
@@ -113,11 +115,21 @@ public class Map {
 	    }
 	}
     }
-		
-	
+    //Other player methods		
+    public String lookAfar( Player p, int dir ) {
+	if ( dir == 0 ) 
+	    return getTile(p.getXcor(),p.getYcor()+1).farAway();
 
+	if ( dir == 1 ) 
+	   return getTile(p.getXcor()+1,p.getYcor()).farAway();
+
+	if ( dir == 2 )
+	    return getTile(p.getXcor(),p.getYcor()-1).farAway();
+
+	if ( dir == 3 )
+	    return getTile(p.getXcor()-1,p.getYcor()).farAway();
 	
-	
+    }
     //    public void Harvest( Player p ) {
 	
 
@@ -125,18 +137,27 @@ public class Map {
 	String retStr = "";
 	for (Tile[] x : _map) {
 	    for (Tile y : x) {
+		if ( y.getisPlayerHere() ) 
+		    retStr += "-(-";
+		else
+		    retStr += " [ ";
+		
 		if (y instanceof Mountain) {
-		    retStr += "[^]";
+		    retStr += "^";
 		}
 		if (y instanceof Lake) {
-		    retStr += "[O]";
+		    retStr += "O";
 			}
 		if (y instanceof Plains) {
-		    retStr += "[_]";
+		    retStr += "_";
 		}
 		if (y instanceof Forest) {
-		    retStr += "[T]";
+		    retStr += "T";
 		}
+		if ( y.getisPlayerHere() ) 
+		    retStr += "-)-";
+		else
+		    retStr += " ] ";
 		
 		//retStr += "[O]";
 	    }
