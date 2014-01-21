@@ -105,6 +105,17 @@ public class Driver {
 			    System.out.println("\n\nThis game is very sensitive to spelling. It had a traumatizing childhood experience. Leave out spaces and ' when entering commands!");
 			}
 		    }
+		    temp.setHunger( temp.getHunger() - 1);
+		    System.out.println("\n");
+		    
+		    if (temp.getHunger() < 3 && temp.getHunger() >= 0) 
+			System.out.println("Watch out, you're close to starvation. Go find some food!");
+
+		    else if (temp.getHunger() < 0) {
+			System.out.println("Oh no! You're starving! You take " + (temp.getHunger()*10) + " damage due to hunger pangs.");
+			temp.setHP(temp.getHP() - (temp.getHunger() * 10));
+		    }
+		    
 		    if (temp.getHP() <= 0) {
 			map.killPlayer(temp.getName());
 			System.out.println("\n\nYou have died! Oh no. What a tragedy. Oh well.");

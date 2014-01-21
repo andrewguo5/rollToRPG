@@ -10,6 +10,7 @@ public class Player {
     protected boolean _looking = false;
     protected String _dir;
 
+    protected int _hunger = 5;
     protected int _actionsLeft;
     protected String _name;
     protected int HP;
@@ -50,6 +51,7 @@ public class Player {
 
     //accessor methods
    
+    public int getHunger() { return _hunger; }
     public String getDir() { return _dir; }
     public int getActionsLeft() { return _actionsLeft; }
     public int getHP() { return HP; }
@@ -72,6 +74,11 @@ public class Player {
    
 
     //mutator methods
+    public void setHunger(int val) {
+	_hunger = val;
+    }
+
+
     public void setActionsLeft(int val) {
 	_actionsLeft = val; }
     
