@@ -3,13 +3,15 @@ import java.lang.Math;
 public class Lake extends Tile {
 
     private int Type = 1;
-    
+    //name, str, dex, int, fth, per, con, hp
     public Lake() {
 	super();
-	if ( (2* Math.random()) > 1 ) 
-	    _item = new Item("treasure chest", 0,0,5,20,0,10,0);
-	else 
-	    _item = new Item("trident",10,5,5,-5,0,5,0);
+	double random = 6*Math.random();
+	if ( random > 4 ) 
+	    _item = new Item("trident (+10 int, +5 per).",0,0,10,0,5,0,0,0);
+	else if ( random > 1 )
+	    _item = new Item("delicious fish (mm tasty).",0,0,0,0,0,0,0,4);
+	    _item = new Item("fancy treasure chest (+20 int, +5 per).",0,0,20,0,5,0,0,0);
     }
     
     public String closeUp() {

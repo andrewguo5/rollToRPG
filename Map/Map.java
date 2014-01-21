@@ -33,7 +33,7 @@ public class Map {
 	exX = (int)(Math.random() * 8);
 	exY = (int)(Math.random() * 8);
 	_map[exX][exY].setEx(true);
-	Item excalibur = new Item("excalibur",100000,0,0,0,0,0,100000);
+	Item excalibur = new Item("excalibur",100000,0,0,0,0,0,100000,0);
 	_map[exX][exY].setItem( excalibur );
 	_map[exX][exY].setChance(.125);
 	

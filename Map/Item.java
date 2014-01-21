@@ -9,8 +9,9 @@ public class Item {
     private int p;
     private int c;
     private int h;
+    private int y;
 
-    public Item( String n, int a, int b, int x, int z, int e, int q, int g ) {
+    public Item( String n, int a, int b, int x, int z, int e, int q, int g, int hungryhunger ) {
 	name = n;
 	s = a;
 	d = b;
@@ -19,6 +20,7 @@ public class Item {
 	p = e;
 	c = q;
 	h = g;
+	y = hungryhunger;
     }
     
     //accessors
@@ -29,6 +31,7 @@ public class Item {
     public int getp() { return p; }
     public int getc() { return c; }
     public int geth() { return h; }
+    public int gety() { return y; }
     public String getN() { return name; }
 }
 	

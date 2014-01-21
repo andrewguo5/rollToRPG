@@ -223,12 +223,12 @@ public class GuiStuff implements ActionListener{
 	frame.setVisible(true);
     }
     
-    public static void main(String[] args) {
-	int i = -2 + 5;
-	System.out.println( i );
-	setup(100);
-	
-	}
+    // public static void main(String[] args) {
+    //	int i = -2 + 5;
+    //	System.out.println( i );
+    //	setup(_hp);
+    //	
+    //	}
 
 }
 
