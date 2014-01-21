@@ -168,7 +168,6 @@ public class Player {
 	_looking = b;
 	_dir = d;
     }
-
     public void setMoving( boolean b ) {
 	_moving = b; 
     }
