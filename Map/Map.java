@@ -5,16 +5,9 @@ public class Map {
         
     private Tile[][] _map = new Tile[8][8];
     private Player[][] _players = new Player[8][8];
-    private ArrayList<Player> _playerList = new ArrayList<Player>(); //probably will be taken from a different class, perhaps one that handles character creation
-
-
-    /*Constructor
-      Should create an 8x8 double array full of Tiles, stored in _map
-      Should create an 8x8 double array of type Player, storing a Player in a random location and null in other locations
-     */
-    public Map( String N1, String N2, String N3 ){//int numPlayers) { //takes number of players upon the completion for character creation. generates a map based on the number of players
-	/*Player Bob = new Player("bob");
-	  _playerList.add(Bob);*/
+    private ArrayList<Player> _playerList = new ArrayList<Player>(); 
+     
+    public Map( String N1, String N2, String N3 ){
     
 	
 	for (Tile[] x : _map) {
@@ -42,6 +35,7 @@ public class Map {
 	    int x = (int)(8 * Math.random());
 	    int y = (int)(8 * Math.random());
 	    p.teleport(x,y);
+	    p.setMoving(true);
 	    updatePlayer(p);
 	}
  
