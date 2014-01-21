@@ -30,8 +30,9 @@ public class Map {
 	int exX = (int)(Math.random() * 8);
 	int exY = (int)(Math.random() * 8);
 	_map[exX][exY].setEx(true);
-	Item excalibur = new Item(100000,0,0,0,0,0,100000);
+	Item excalibur = new Item(excalibur,100000,0,0,0,0,0,100000);
 	_map[exX][exY].setItem( excalibur );
+	_map[exX][exY].setChance(.125);
 	
 	_playerList.add( new Player( N1 ) );
 	_playerList.add( new Player( N2 ) );
@@ -118,10 +119,7 @@ public class Map {
 	int y = richard.getYcor();
 	Tile t = _map[x][y];
 	Item i = t.getItem();
-	if ( t.getEx() ) {
-	    
-
-
+    
 	if ( ! t.getUsed() && t.getChance() > Math.random() ) {
 	    richard.setStr(richard.getStr() + i.gets() );
 	    richard.setDex(richard.getDex() + i.getd() );
@@ -131,7 +129,7 @@ public class Map {
 	    richard.setCon(richard.getCon() + i.getc() );
 	    richard.setHP(richard.getHP() + i.geth() );
 	    t.setUsed(true);
-	    System.out.println("You found a " + i.getN() );
+	    System.out.println("You found a(n) " + i.getN() );
 	}
 	else 
 	    System.out.println("After rummaging through your surroundings you find nothing of use.");

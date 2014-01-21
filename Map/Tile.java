@@ -13,7 +13,7 @@ public abstract class Tile {
      */
     
     public Tile() {
-	chance = .35; 
+	chance = .50; 
         _isPlayerHere = false;
 	_used = false;
 	
