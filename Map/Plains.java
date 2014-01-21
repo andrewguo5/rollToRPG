@@ -15,7 +15,10 @@ public class Plains extends Tile {
 	return "You are walking in the midst of a grassy plain. Slight breezes make wave patterns on the wild grass. The air is filled with the sound of grass blades brushing against another.";
     }
     public String farAway() {
-	return "There lies a grassy plain.";
+	String ret ="There lies a grassy plain.";
+	if (_isPlayerHere) 
+	    ret += " You notice a warrior out in the open. Now is your chance to strike.";
+	return ret;
     }
 
 

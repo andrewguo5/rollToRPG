@@ -16,7 +16,10 @@ public class Lake extends Tile {
 	return "You stand at the banks of a small lake, with marshy grass and mud underneath your feet. The wind brushes against the lake, brushing delicate ripples on its surface.";
     }
     public String farAway() {
-	return "It appears to be a small lake in the distance.";
+	String ret = "It appears to be a small lake in the distance.";
+	if (_isPlayerHere) 
+	    ret += "You see a lone figure stopping by for a drink in the distance, is it a friend or a foe?";
+	return ret;
     }
 
 }

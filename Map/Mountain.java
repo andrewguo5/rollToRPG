@@ -18,8 +18,12 @@ public class Mountain extends Tile {
 	return "You find yourself on the slopes of a jagged mountain. Rocks lie all around you. The size of the mountain and sudden steepness of the slope astound you.";
     }
     public String farAway() {
-	return "A tall mountain looms in the distance.";
+	String ret = "A tall mountain looms in the distance.";
+	if ( _isPlayerHere )
+	    ret += " You see a shadow dancing in the fog of the mountain, moving in and out of the impassive boulders."; 
+	return ret;
     }
+
 
 
 }
