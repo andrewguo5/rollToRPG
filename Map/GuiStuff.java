@@ -7,35 +7,35 @@ import java.awt.Color;
 public class GuiStuff implements ActionListener{
 
     int _hp = 0;
-    JPanel hitPanel, hpStatPanel, buttonPanel;
-    JLabel hpLabel, hpStatLabel;
-    JButton attack, examine;
+    JPanel hitPanel, hpStatPanel, movebuttonPanel;
+    JLabel hpLabel, hpStatLabel; 
+    JButton attack, examine, moveup, movedown, moveleft, moveright;
 	
     public JPanel createContentPane() {
 	//Base Panel
 	JPanel basePanel = new JPanel();
 	basePanel.setLayout(null);
 	
-	//Panel to hold HP Label
+	//Panel to hold HP Label///////////////////////////PANEL
 	hitPanel = new JPanel();
 	hitPanel.setLayout(null);
-	hitPanel.setLocation(10, 0);
-	hitPanel.setSize(250, 30);
+	hitPanel.setLocation(70, 0);
+	hitPanel.setSize(140, 30);
 	basePanel.add(hitPanel);
 	
 	//HP Label
 	hpLabel = new JLabel ("Hit Points");
 	hpLabel.setLocation(0, 0);
-	hpLabel.setSize(100, 30);
+	hpLabel.setSize(120, 30);
 	hpLabel.setHorizontalAlignment(0);
 	hpLabel.setForeground(Color.blue);
 	hitPanel.add(hpLabel);
 
-	//Panel to hold HP Stat
+	//Panel to hold HP Stat///////////////////////////PANEL
 	hpStatPanel = new JPanel();
 	hpStatPanel.setLayout(null);
-	hpStatPanel.setLocation(10, 40);
-	hpStatPanel.setSize(260, 30);
+	hpStatPanel.setLocation(70, 40);
+	hpStatPanel.setSize(140, 30);
 	basePanel.add(hpStatPanel);
 
 	//HP Stat Label
@@ -45,19 +45,44 @@ public class GuiStuff implements ActionListener{
 	hpStatLabel.setHorizontalAlignment(0);
 	hpStatPanel.add(hpStatLabel);
 
-	//Button Panel
-	buttonPanel = new JPanel();
-	buttonPanel.setLayout(null);
-	buttonPanel.setLocation(10, 80);
-	buttonPanel.setSize(260, 70);
-	basePanel.add(buttonPanel);
+	//MoveButton Panel///////////////////////////PANEL
+	movebuttonPanel = new JPanel();
+	movebuttonPanel.setLayout(null);
+	movebuttonPanel.setLocation(70, 80);
+	movebuttonPanel.setSize(280, 120);
+	basePanel.add(movebuttonPanel);
 
-	//Buttons
+	//MoveButtons
+	moveup = new JButton("Up");
+	moveup.setLocation(30,0);
+	moveup.setSize(70, 30);
+	moveup.addActionListener(this);
+	movebuttonPanel.add(moveup);
+
+	movedown = new JButton("Down");
+	movedown.setLocation(30,60);
+	movedown.setSize(70, 30);
+	movedown.addActionListener(this);
+	movebuttonPanel.add(movedown);
+
+	moveleft = new JButton("Left");
+	moveleft.setLocation(0,30);
+	moveleft.setSize(70, 30);
+	moveleft.addActionListener(this);
+	movebuttonPanel.add(moveleft);
+
+	moveright = new JButton("Right");
+	moveright.setLocation(60,30);
+	moveright.setSize(70, 30);
+	moveright.addActionListener(this);
+	movebuttonPanel.add(moveright);
+
+	//AttackButton
 	attack = new JButton("Attack");
 	attack.setLocation(0,0);
 	attack.setSize(120, 30);
 	attack.addActionListener(this);
-	buttonPanel.add(attack);
+	//buttonPanel.add(attack);
 	
 	return basePanel;
     }
@@ -75,8 +100,9 @@ public class GuiStuff implements ActionListener{
 	
 	GuiStuff gui = new GuiStuff();
 	frame.setContentPane(gui.createContentPane());
+	frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
 	
-	frame.setSize(280, 190);
+	frame.setSize(280, 420);
 	frame.setResizable(false);
 	frame.setVisible(true);
     }
