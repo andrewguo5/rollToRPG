@@ -29,6 +29,7 @@ public class Item {
     public int getp() { return p; }
     public int getc() { return c; }
     public int geth() { return h; }
+    public String getN() { return name; }
 }
 	
 
