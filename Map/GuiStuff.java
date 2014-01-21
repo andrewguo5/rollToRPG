@@ -12,7 +12,7 @@ public class GuiStuff implements ActionListener{
     int _hp = 0;
     JPanel hitPanel, hpStatPanel, buttonPanel, movePanel, expPanel, explanationsPanel; 
     JLabel hpLabel, hpStatLabel, moveLabel, exclamationLabel;
-    JButton attack, examine, move, map, harvest,
+    JButton attack, examine, move, map, harvest, stats, hunger,
 	lookafar;
 	
     public GuiStuff(int _temp) {
@@ -71,7 +71,7 @@ public class GuiStuff implements ActionListener{
 	buttonPanel = new JPanel();
 	buttonPanel.setLayout(null);
 	buttonPanel.setLocation(70, 80);
-	buttonPanel.setSize(280, 500);
+	buttonPanel.setSize(280, 580);
 	basePanel.add(buttonPanel);
 
 	//Buttons
@@ -135,19 +135,18 @@ public class GuiStuff implements ActionListener{
 	harvest.addActionListener(this);
 	//expPanel.add(harvest);
 	buttonPanel.add(harvest);
-	/*
-	lookleft = new JButton("<-L");
-	lookleft.setLocation(0,30);
-	lookleft.setSize(70, 30);
-	lookleft.addActionListener(this);
-	expPanel.add(lookleft);
-
-	lookright = new JButton("L->");
-	lookright.setLocation(60,30);
-	lookright.setSize(70, 30);
-	lookright.addActionListener(this);
-	expPanel.add(lookright);
-	*//*
+	
+	hunger = new JButton("Hunger");
+	hunger.setLocation(0,240);
+	hunger.setSize(140, 30);
+	hunger.addActionListener(this);
+	buttonPanel.add(hunger);
+        
+	stats = new JButton("Stats");
+	stats.setLocation(0,280);
+	stats.setSize(140, 30);
+	stats.addActionListener(this);
+	buttonPanel.add(stats);	/*
 	//AttackButton
 	attack = new JButton("Attack");
 	attack.setLocation(0,0);
@@ -162,30 +161,54 @@ public class GuiStuff implements ActionListener{
     public void actionPerformed(ActionEvent bang) {
 	Object source = bang.getSource();
 	if (source == attack) {
-	    System.out.println("Insert attack explanation");
+	    System.out.println("\n\n" +
+			       "Attacking:\n" +
+			       "Players can be attacked if they're on the same tile as another player. Attacking does damage based on a player's strength and dexterity. Players recieve damage based on the attacking player's damage, and their defensive stats, based on constitution. If attacking while no players are present, nothing will happen. Haha.");
 	}
 	if (source == examine) {
 	    //move(0, 1);
-	    System.out.println("Insert examine explanation");
+	    System.out.println("\n\n" +
+			       "Examining: \n" +
+			       "Players automatically examine the tile they are standing on the beginning of every turn. Examinations tell a player about the type of tile they are standing on, and various other traits about the tile.");
 	}
 	if (source == lookafar) {
-	    System.out.println ("Insert look explanation" );
+	    System.out.println ("\n\n" +
+				"Looking: \n" +
+				"Looking is the only way to see if players are near you. If you look at a tile that a player is standing on, you will be notified of their existence. Looking at tiles also tells you what type of tile they are. Looking can help you determine where you are on the map.");
 	}
 	if (source == move ) {
-	    System.out.println ("Insert move explanation");
+	    System.out.println ("\n\n" +
+				"Moving: \n" +
+				"Moving lets players gather more resources and attack each other. Moving onto the same time as another player allows them to attack each other."
+		);
 	}
 	if (source == map) {
-	    System.out.println ("Insert map explanation" );
+	    System.out.println ("\n\n" +
+				"Map: \n" +
+				"The tiles on the map represent different tile types. \n[ ^ ] Mountain +str \n[ O ] Lake +int/per \n[ _ ] Plains +con/fth \n[ T ] Forest +dex . In every map, there is one tile that holds a legendary excalibur weapon." );
 	}
 	if (source == harvest) {
-	    System.out.println ("Insert harvest explanation" );
-	}/*
-	if (source == lookleft ) {
-	    System.out.println ("lookLeft");
+	    System.out.println ("\n\n" +
+				"Harvesting: \n" + 
+				"Harvesting tiles has a percent chance to yield a stat bonus. Harvesting tiles makes players stronger. Each tile can only be harvested once. Forests and lakes are more likely to return food, while mountains and plains are more likely to return bonuses. One tile contains a legendary excalibur, that makes a player invincible and impossibly strong.");
 	}
-	if (source == lookright) {
-	    System.out.println ( "lookRight");
-	}*/
+	if (source == hunger ) {
+	    System.out.println ("\n\n" +
+				"Hunger: \n" +
+				"It costs a little bit of hunger per turn. After six consecutive turns of not eating, you will begin to lose health due to starvation. Eating food replenishes but does not always fully replenish the hunger bar. Being full slightly heals a little bit of health");
+	}
+	if (source == stats ) {
+	    System.out.println ("\n\n" +
+				"Stats: \n" +
+				"Statistics affect qualities of a player. There are six different statistics, not including health.\n" +
+				"Strength: Greatly increases damage on attacks.\n" +
+				"Dexterity: Slightly increases both damage and defense.\n" +
+				"Intelligence: Increases harvest success and slows starvation rate\n" +
+				"Perception: Grants more detailed environment descriptions\n" +
+				"Faith: Increases the chance at divine guidance\n" +
+				"Constitution: Increases defense and slows starvation rate\n" +
+				"Players die when their health decreases to 0. Different tiles increase different stats." );
+				}
     }/*
 	*/
     public static void setup(int _temp) {
@@ -195,7 +218,7 @@ public class GuiStuff implements ActionListener{
 	frame.setContentPane(gui.createContentPane());
 	//frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
 	
-	frame.setSize(280, 420);
+	frame.setSize(280, 490);
 	frame.setResizable(false);
 	frame.setVisible(true);
     }
