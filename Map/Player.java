@@ -3,6 +3,12 @@ import java.lang.Math;
 public class Player {
 
     //Instance Variables
+   
+    protected boolean _attacking;
+
+
+
+    protected int _actionsLeft;
     protected String _name;
     protected int HP;
     
@@ -21,6 +27,7 @@ public class Player {
     //Constructor
     public Player( String name ) {
 	
+	_actionsLeft = 3;
 	HP = 100;
 	
 	_str = 10;
@@ -40,6 +47,7 @@ public class Player {
     //public void ability()
 
     //accessor methods
+    public int getActionsLeft() { return _actionsLeft; }
     public int getHP() { return HP; }
     public int getStr()  {return _str;}
     public int getDex()  {return _dex;}
@@ -53,7 +61,13 @@ public class Player {
     public int getMY() {return _moveY; }
     public String getName() { return _name; }
 
+    public boolean getAttacking() { return _attacking; }
+ 
+
     //mutator methods
+    public void setActionsLeft(int val) {
+	_actionsLeft = val; }
+    
     public int setHP(int val) {
 	int oldVal = HP;
 	HP = val;
@@ -114,6 +128,9 @@ public class Player {
 	_con += I.getc();
 	HP += I.geth();
     }
-   
+
+    public void setAttacking( boolean b ) {
+	_attacking = b;
+    }
     
 }

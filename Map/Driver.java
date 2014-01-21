@@ -20,9 +20,11 @@ public class Driver {
 	
 	while (map.getplayerList().size() > 1) {
 	    for (Player fred: map.getplayerList()) {
-		System.out.println("TEST");
-		TestFrame test = new TestFrame();
-	        String Test = Keyboard.readString();
+		Player temp = fred;
+		System.out.println("Turn begin");
+		System.out.println( map.getTileMap()[fred.getXcor()][fred.getYcor()].closeUp() );
+		
+	        
 	    }
 	}
 

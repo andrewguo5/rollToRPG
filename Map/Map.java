@@ -74,7 +74,16 @@ public class Map {
 
 	    richard.setXcor( _newXcor );
 	    richard.setYcor( _newYcor );
+
+	    if ( richard.getAttacking() ) {
+		for ( Player p : _playerList ) {
+		    if (p.getXcor() == richard.getXcor() && p.getYcor() == richard.getYcor() && p.getName() != richard.getName() ) 
+			p.setHP( p.getHP() - richard.getStr()); 
+		}
+		richard.setAttacking(false);
+		
 	    
+	    }
 	}
     }
 
