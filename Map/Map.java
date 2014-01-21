@@ -6,7 +6,8 @@ public class Map {
     private Tile[][] _map = new Tile[8][8];
     private Player[][] _players = new Player[8][8];
     private ArrayList<Player> _playerList = new ArrayList<Player>(); 
-     
+    private ArrayList<Player> _deadPlayerList = new ArrayList<Player>();
+
     public Map( String N1, String N2, String N3 ){
     
 	
@@ -107,7 +108,7 @@ public class Map {
 	    Player p = _playerList.get(n);
 	    if ( p.getName().equals( Pname ) ) {
 		setNull( p.getXcor(), p.getYcor() );
-		_playerList.remove(n);
+		_deadPlayerList.add(p);
 		break;
 	    }
 	}
