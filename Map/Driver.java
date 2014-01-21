@@ -19,12 +19,14 @@ public class Driver {
 	Map map = new Map(name1, name2, name3);
 	
 	while (map.getplayerList().size() > 1) {
+	    
 	    for (Player fred: map.getplayerList()) {
 		Player temp = fred;
 		System.out.println("Turn begin");
 		GuiStuff.setup(temp);
 		String stop = Keyboard.readString();
 		//System.out.println( map.getTileMap()[fred.getXcor()][fred.getYcor()].closeUp() );
+		
 		
 	        
 	    }

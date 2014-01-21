@@ -2,7 +2,7 @@ public abstract class Tile {
 
     
     protected boolean _isPlayerHere; //tracks if the tile is occupied
-    protected boolean _used;       //tracks if the tile is harvested
+    protected boolean _used = false;       //tracks if the tile is harvested
     protected int _xcor;
     protected int _ycor;
     protected Item _item;        //the item inside of the Tile
