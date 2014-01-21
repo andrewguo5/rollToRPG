@@ -169,8 +169,10 @@ public class Player {
 	_dir = d;
     }
 
-    public void setMoving( boolean b ) {
+    public void setMoving( boolean b, String d ) {
 	_moving = b; 
+	move(d);
+	
     }
     public void setHarvesting( boolean b ) {
 	_harvesting = b; 
