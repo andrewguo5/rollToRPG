@@ -27,6 +27,12 @@ public class Map {
 		}
 	    }
 	}
+	int exX = (int)(Math.random() * 8);
+	int exY = (int)(Math.random() * 8);
+	_map[exX][exY].setEx(true);
+	Item excalibur = new Item(100000,0,0,0,0,0,100000);
+	_map[exX][exY].setItem( excalibur );
+	
 	_playerList.add( new Player( N1 ) );
 	_playerList.add( new Player( N2 ) );
 	_playerList.add( new Player( N3 ) );
@@ -112,18 +118,25 @@ public class Map {
 	int y = richard.getYcor();
 	Tile t = _map[x][y];
 	Item i = t.getItem();
-	if ( ! t.getUsed() ) {
-	    richard.setStr( i.gets() );
-	    richard.setDex( i.getd() );
-	    richard.setFth( i.getf() );
-	    richard.setInt( i.geti() );
-	    richard.setPer( i.getp() );
-	    richard.setCon( i.getc() );
-	    richard.setHP( i.geth() );
+	if ( t.getEx() ) {
+	    
+
+
+	if ( ! t.getUsed() && t.getChance() > Math.random() ) {
+	    richard.setStr(richard.getStr() + i.gets() );
+	    richard.setDex(richard.getDex() + i.getd() );
+	    richard.setFth(richard.getFth() + i.getf() );
+	    richard.setInt(richard.getInt() + i.geti() );
+	    richard.setPer(richard.getPer() + i.getp() );
+	    richard.setCon(richard.getCon() + i.getc() );
+	    richard.setHP(richard.getHP() + i.geth() );
+	    t.setUsed(true);
+	    System.out.println("You found a " + i.getN() );
 	}
-	t.setUsed(true);
+	else 
+	    System.out.println("After rummaging through your surroundings you find nothing of use.");
 	richard.setHarvesting(false);
-	System.out.println("You found a " + i.getN() );
+        
     }
 
     public void moveM( Player richard ) {
