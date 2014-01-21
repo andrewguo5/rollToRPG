@@ -6,12 +6,19 @@ import java.awt.Color;
 
 public class GuiStuff implements ActionListener{
 
+    //private Player caller;
+    // private int xcor;
+    // private int ycor;
     int _hp = 0;
-    JPanel hitPanel, hpStatPanel, movebuttonPanel, lookbuttonPanel, movePanel, lookPanel;
-    JLabel hpLabel, hpStatLabel, moveLabel, lookLabel;
-    JButton attack, examine, moveup, movedown, moveleft, moveright,
-	lookup, lookdown, lookleft, lookright;
+    JPanel hitPanel, hpStatPanel, buttonPanel, movePanel, expPanel, explanationsPanel; 
+    JLabel hpLabel, hpStatLabel, moveLabel, exclamationLabel;
+    JButton attack, examine, move, map, harvest,
+	lookafar;
 	
+    public GuiStuff(int _temp) {
+	_hp = _temp;
+    }
+
     public JPanel createContentPane() {
 	//Base Panel
 	JPanel basePanel = new JPanel();
@@ -45,8 +52,8 @@ public class GuiStuff implements ActionListener{
 	hpStatLabel.setSize(120, 20);
 	hpStatLabel.setHorizontalAlignment(0);
 	hpStatPanel.add(hpStatLabel);	
-
-	//Panel to hold Move Label///////////////////////////PANEL
+       
+	//Panel to hold Instructions Label///////////////////////////PANEL
 	movePanel = new JPanel();
 	movePanel.setLayout(null);
 	movePanel.setLocation(70, 50);
@@ -54,136 +61,138 @@ public class GuiStuff implements ActionListener{
 	basePanel.add(movePanel);
 
 	//Move Label
-	moveLabel = new JLabel ("Move");
+	moveLabel = new JLabel ("Instructions");
 	moveLabel.setLocation(0,0);
 	moveLabel.setSize(120, 30);
 	moveLabel.setHorizontalAlignment(0);
 	movePanel.add(moveLabel);
 
-	//MoveButton Panel///////////////////////////PANEL
-	movebuttonPanel = new JPanel();
-	movebuttonPanel.setLayout(null);
-	movebuttonPanel.setLocation(70, 80);
-	movebuttonPanel.setSize(280, 120);
-	basePanel.add(movebuttonPanel);
+	//Button Panel///////////////////////////PANEL
+	buttonPanel = new JPanel();
+	buttonPanel.setLayout(null);
+	buttonPanel.setLocation(70, 80);
+	buttonPanel.setSize(280, 120);
+	basePanel.add(buttonPanel);
 
 	//MoveButtons
-	moveup = new JButton("Up");
-	moveup.setLocation(30,0);
-	moveup.setSize(70, 30);
-	moveup.addActionListener(this);
-	movebuttonPanel.add(moveup);
+	examine = new JButton("Examine");
+	examine.setLocation(30,0);
+	examine.setSize(70, 30);
+	examine.addActionListener(this);
+	buttonPanel.add(examine);
 
-	movedown = new JButton("Down");
-	movedown.setLocation(30,60);
-	movedown.setSize(70, 30);
-	movedown.addActionListener(this);
-	movebuttonPanel.add(movedown);
+	lookafar = new JButton("Look");
+	lookafar.setLocation(30,60);
+	lookafar.setSize(70, 30);
+	lookafar.addActionListener(this);
+	buttonPanel.add(lookafar);
 
-	moveleft = new JButton("Left");
-	moveleft.setLocation(0,30);
-	moveleft.setSize(70, 30);
-	moveleft.addActionListener(this);
-	movebuttonPanel.add(moveleft);
+	move = new JButton("Moving");
+	move.setLocation(0,30);
+	move.setSize(70, 30);
+	move.addActionListener(this);
+	buttonPanel.add(move);
 
-	moveright = new JButton("Right");
-	moveright.setLocation(60,30);
-	moveright.setSize(70, 30);
-	moveright.addActionListener(this);
-	movebuttonPanel.add(moveright);	
+	attack = new JButton("Attacking");
+	attack.setLocation(60,30);
+	attack.setSize(70, 30);
+	attack.addActionListener(this);
+	buttonPanel.add(attack);
+	
+	//Panel to hold Explanations Label///////////////////////////PANEL
+	explanationsPanel = new JPanel();
+	explanationsPanel.setLayout(null);
+	explanationsPanel.setLocation(70, 210);
+	explanationsPanel.setSize(140, 30);
+	basePanel.add(explanationsPanel);
 
-	//Panel to hold Look Label///////////////////////////PANEL
-	lookPanel = new JPanel();
-	lookPanel.setLayout(null);
-	lookPanel.setLocation(70, 210);
-	lookPanel.setSize(140, 30);
-	basePanel.add(lookPanel);
-
-	//Look Label
-	lookLabel = new JLabel ("Look");
-	lookLabel.setLocation(0,0);
-	lookLabel.setSize(120, 30);
-	lookLabel.setHorizontalAlignment(0);
-	lookPanel.add(lookLabel);
+	//Exclamation Label
+	exclamationLabel = new JLabel ("!!!");
+	exclamationLabel.setLocation(0,0);
+	exclamationLabel.setSize(120, 30);
+	exclamationLabel.setHorizontalAlignment(0);
+	explanationsPanel.add(exclamationLabel);
 
 	//LookButtons Panel/////////////////////////////////PANEL
-	lookbuttonPanel = new JPanel();
-	lookbuttonPanel.setLayout(null);
-	lookbuttonPanel.setLocation(70, 240);
-	lookbuttonPanel.setSize(280, 120);
-	basePanel.add(lookbuttonPanel);
+	expPanel = new JPanel();
+	expPanel.setLayout(null);
+	expPanel.setLocation(70, 240);
+	expPanel.setSize(280, 120);
+	basePanel.add(expPanel);
 
 	//LookButtons
-	lookup = new JButton("/L\\");
-	lookup.setLocation(30,0);
-	lookup.setSize(70, 30);
-	lookup.addActionListener(this);
-	lookbuttonPanel.add(lookup);
+	map = new JButton("/L\\");
+	map.setLocation(30,0);
+	map.setSize(70, 30);
+	map.addActionListener(this);
+	expPanel.add(map);
 
-	lookdown = new JButton("\\L/");
-	lookdown.setLocation(30,60);
-	lookdown.setSize(70, 30);
-	lookdown.addActionListener(this);
-	lookbuttonPanel.add(lookdown);
-
+	harvest = new JButton("\\L/");
+	harvest.setLocation(30,60);
+	harvest.setSize(70, 30);
+	harvest.addActionListener(this);
+	expPanel.add(harvest);
+	/*
 	lookleft = new JButton("<-L");
 	lookleft.setLocation(0,30);
 	lookleft.setSize(70, 30);
 	lookleft.addActionListener(this);
-	lookbuttonPanel.add(lookleft);
+	expPanel.add(lookleft);
 
 	lookright = new JButton("L->");
 	lookright.setLocation(60,30);
 	lookright.setSize(70, 30);
 	lookright.addActionListener(this);
-	lookbuttonPanel.add(lookright);
-
+	expPanel.add(lookright);
+	*//*
 	//AttackButton
 	attack = new JButton("Attack");
 	attack.setLocation(0,0);
 	attack.setSize(120, 30);
 	attack.addActionListener(this);
 	//buttonPanel.add(attack);
-	
+
+	*/
 	return basePanel;
     }
+
 
     public void actionPerformed(ActionEvent bang) {
 	Object source = bang.getSource();
 	if (source == attack) {
 	    System.out.println("bang!");
 	}
-	if (source == moveup) {
-	    System.out.println ("Up" );
+	if (source == examine) {
+	    //move(0, 1);
+	    System.out.println("Moved up");
 	}
-	if (source == movedown) {
-	    System.out.println ("Down" );
+	if (source == lookafar) {
+	    System.out.println ("Moved down" );
 	}
-	if (source == moveleft ) {
-	    System.out.println ("Left");
+	if (source == move ) {
+	    System.out.println ("Moved left");
 	}
-	if (source == moveright) {
-	    System.out.println ( "Right");
+	if (source == attack) {
+	    System.out.println ("Moved right");
 	}
-	if (source == lookup) {
-	    System.out.println ("lookUp" );
+	if (source == map) {
+	    System.out.println ("map" );
 	}
-	if (source == lookdown) {
-	    System.out.println ("lookDown" );
-	}
+	if (source == harvest) {
+	    System.out.println ("harvest" );
+	}/*
 	if (source == lookleft ) {
 	    System.out.println ("lookLeft");
 	}
 	if (source == lookright) {
 	    System.out.println ( "lookRight");
-	}
-    }
-
-    private static void setup() {
-	
+	}*/
+    }/*
+	*/
+    public static void setup(int _temp) {
         JFrame frame = new JFrame("Player UI");
 	
-	GuiStuff gui = new GuiStuff();
+	GuiStuff gui = new GuiStuff(_temp);
 	frame.setContentPane(gui.createContentPane());
 	frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
 	
@@ -191,10 +200,10 @@ public class GuiStuff implements ActionListener{
 	frame.setResizable(false);
 	frame.setVisible(true);
     }
-
+    
     public static void main(String[] args) {
-	setup();
-    }
+	setup(100);
+	}
 
 }
 
