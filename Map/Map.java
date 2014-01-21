@@ -120,13 +120,13 @@ public class Map {
 	if ( dir == 0 ) 
 	    return getTile(p.getXcor(),p.getYcor()+1).farAway();
 
-	if ( dir == 1 ) 
+	else if ( dir == 1 ) 
 	   return getTile(p.getXcor()+1,p.getYcor()).farAway();
 
-	if ( dir == 2 )
+	else if ( dir == 2 )
 	    return getTile(p.getXcor(),p.getYcor()-1).farAway();
 
-	if ( dir == 3 )
+	else
 	    return getTile(p.getXcor()-1,p.getYcor()).farAway();
 	
     }

@@ -10,7 +10,8 @@ public class Item {
     private int c;
     private int h;
 
-    public Item( int a, int b, int x, int z, int e, int q, int g ) {
+    public Item( String n, int a, int b, int x, int z, int e, int q, int g ) {
+	name = n;
 	s = a;
 	d = b;
 	i = x;

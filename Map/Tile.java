@@ -22,7 +22,7 @@ public abstract class Tile {
     public boolean getUsed() {return _used;}
     public int getXcor() {return _xcor;}
     public int getYcor() {return _ycor;}
-    public int getItem() { return _item; }
+    public Item getItem() { return _item; }
 
     //Mutator
     public void setUsed(boolean h) {
