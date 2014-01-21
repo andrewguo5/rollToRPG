@@ -5,7 +5,7 @@ public abstract class Tile {
     protected boolean _used;       //tracks if the tile is harvested
     protected int _xcor;
     protected int _ycor;
-    //protected Item _item;        //the item inside of the Tile
+    protected Item _item;        //the item inside of the Tile
 
     /*Constructor
   
@@ -14,6 +14,7 @@ public abstract class Tile {
     public Tile() {
         _isPlayerHere = false;
 	_used = false;
+	
     }
     
     //Accessors//
@@ -21,6 +22,7 @@ public abstract class Tile {
     public boolean getUsed() {return _used;}
     public int getXcor() {return _xcor;}
     public int getYcor() {return _ycor;}
+    public Item getItem() { return _item; }
 
     //Mutator
     public void setUsed(boolean h) {
