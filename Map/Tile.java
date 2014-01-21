@@ -1,6 +1,7 @@
 public abstract class Tile {
 
-    protected boolean ex;
+    public boolean slender = false; 
+    protected boolean ex = false;
     protected double chance;
     protected boolean _isPlayerHere; //tracks if the tile is occupied
     protected boolean _used = false;       //tracks if the tile is harvested
@@ -20,6 +21,7 @@ public abstract class Tile {
     }
     
     //Accessors//
+    public boolean getSlender() { return slender; }
     public boolean getEx() { return ex; }
     public double getChance() { return chance; }
     public boolean getisPlayerHere() {return _isPlayerHere;}
@@ -32,7 +34,9 @@ public abstract class Tile {
     public void setChance(double d) {
 	chance = d;
     }
-
+   public void setSlender( boolean b ) {
+	slender = b;
+    }
     
     public void setItem( Item i ) {
 	_item = i;

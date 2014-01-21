@@ -1,4 +1,5 @@
 import cs1.Keyboard;
+import java.lang.Math;
 
 public class Driver {
 
@@ -108,6 +109,13 @@ public class Driver {
 		    temp.setHunger( temp.getHunger() - 1);
 		    System.out.println("\n");
 		    
+		    int sDiffX = temp.getXcor() - map.getsX();
+		    int sDiffY = temp.getYcor() - map.getsY();
+		    if ( Math.abs(sDiffX) <= 2 && Math.abs(sDiffY) <= 2 ) {
+			System.out.println("You feel a strange sense of foreboding, something sinister is lurking in the area. Be weary of where you step.");
+		    }
+
+
 		    if ( temp.getFth() > (int)(Math.random() * 100) ) {
 			String exRet = "You sense a strong magical force from the ";
 			int xDiff = temp.getXcor() - map.getExX();
@@ -127,8 +135,10 @@ public class Driver {
 			    exRet += "north west.";
 			else if ( xDiff > 0 && yDiff < 0 )
 			    exRet += "south east.";
-			else
+			else if ( xDiff < 0 && yDiff < 0 )
 			    exRet += "south west.";
+			else {
+			    exRet = "You feel an incredible surge of power in your veins. A lightning bolt strikes the ground before your feet. You've found it!";}
 			System.out.println(exRet);
 		    }	    
 
@@ -153,6 +163,10 @@ public class Driver {
 			map.killPlayer(temp.getName());
 			System.out.println("\n\nYou have died! Oh no. What a tragedy. Oh well.");
 		    }
+		    else if (map.getTileMap()[temp.getXcor()][temp.getYcor()].getSlender() ){
+			map.killPlayer(temp.getName());
+			System.out.println("\n\nYou feel the darkness washing over you as you freeze in fear. As the faceless man walks towards you you realize it's the end: you have died.");   
+		    }
 		}
 	        else {
 			System.out.println("You are dead! Sit tight.");
@@ -161,7 +175,7 @@ public class Driver {
 		String stop = Keyboard.readString();
 	    }
 		    
-      
+	    map.updateSlender();
 		
 	        
 	}

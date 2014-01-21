@@ -9,10 +9,11 @@ public class Map {
     private ArrayList<Player> _deadPlayerList = new ArrayList<Player>();
     private int exX;
     private int exY;
+    private int sX;
+    private int sY; 
 
     public Map( String N1, String N2, String N3 ){
     
-	
 	for (Tile[] x : _map) {
 	    for (int n = 0; n < x.length; n++) {
 		int randInt = (int)(Math.random() * 4);
@@ -30,6 +31,11 @@ public class Map {
 		}
 	    }
 	}
+
+	sX = (int)(Math.random() * 8);
+	sY = (int)(Math.random() * 8);
+	_map[sX][sY].setSlender(true);
+
 	exX = (int)(Math.random() * 8);
 	exY = (int)(Math.random() * 8);
 	_map[exX][exY].setEx(true);
@@ -53,7 +59,8 @@ public class Map {
     //ACCESSOR
     public int getExX() { return exX; }
     public int getExY() { return exY; }
-
+    public int getsX() { return sX; }
+    public int getsY() { return sY; }
 
     public ArrayList<Player> getplayerList() {
 	return _playerList;
@@ -206,7 +213,16 @@ public class Map {
     else { System.out.println("Sorry, that's not a direction"); }
 	richard.setLooking(false,"");
     }
-    
+
+    public void updateSlender() { 
+	_map[sX][sY].setSlender(false);
+	int x = (int)(3* Math.random() - 1);
+	int y = (int)(3* Math.random() - 1);
+	sX += x;
+	sY += y;
+	_map[sX][sY].setSlender(true);
+    }
+
     public String toString() {
 	String retStr = "";
 	for (Tile[] x : _map) {
