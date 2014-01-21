@@ -113,14 +113,14 @@ public class Driver {
 	        else {
 			System.out.println("You are dead! Sit tight.");
 		    }
-		}
-		    
 		System.out.println("\n\nTurn is over! Enter any key to continue");
 		String stop = Keyboard.readString();
-	
+	    }
+		    
+      
 		
 	        
-	    }
 	}
     }
 }
+
