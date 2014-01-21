@@ -25,8 +25,7 @@ public class Driver {
 	
 	while (map.getplayerList().size() > 1) {
 	    
-	    for (Player fred: map.getplayerList()) {
-		Player temp = fred;
+	    for (Player temp: map.getplayerList()) {
 		System.out.println("Turn begin");
 		System.out.println("\n\n");
 		System.out.println( map.getTileMap()[temp.getXcor()][temp.getYcor()].closeUp() ); //examine
@@ -53,6 +52,38 @@ public class Driver {
 			map.updatePlayer(temp);
 			temp.setActionsLeft(temp.getActionsLeft() - 1 );
 		    }
+		    if (response.equals("move") ) {
+			String direction = "";
+			System.out.println("What direction do you want to move in?");
+			direction = (Keyboard.readString()).toLowerCase();
+			while ( !islegitDirection(direction) ) {
+			    System.out.println("I don't know what direction " + direction + " is in.");
+			    System.out.println("What direction do you want to look in?");
+			    direction = (Keyboard.readString()).toLowerCase();
+			}
+			temp.move(direction);
+			temp.setMoving(true);
+			System.out.println("\n\n");
+			map.updatePlayer(temp);
+			temp.setActionsLeft(temp.getActionsLeft()-1);
+		    }
+		    if (response.equals("harvest") ) {
+			temp.setHarvesting(true);
+			map.updatePlayer(temp);
+			temp.setActionsLeft(temp.getActionsLeft() - 3);
+		    }
+		    if (response.equals("attack") ) {
+			temp.setAttacking(true);
+			map.updatePlayer(temp);
+			temp.setActionsLeft(temp.getActionsLeft() -2);
+		    }
+		    if (response.equals("map")) {
+			System.out.println("You take out your trusty scroll and examine the area: \n\n");
+			//System.out.println(returnMap(map));
+		    }
+		    //if (response.equals("help")
+	    
+			
 		}
 		    
 			
