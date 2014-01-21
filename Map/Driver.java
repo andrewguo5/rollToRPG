@@ -22,7 +22,9 @@ public class Driver {
 	    for (Player fred: map.getplayerList()) {
 		Player temp = fred;
 		System.out.println("Turn begin");
-		System.out.println( map.getTileMap()[fred.getXcor()][fred.getYcor()].closeUp() );
+		GuiStuff.setup(temp);
+		String stop = Keyboard.readString();
+		//System.out.println( map.getTileMap()[fred.getXcor()][fred.getYcor()].closeUp() );
 		
 	        
 	    }
