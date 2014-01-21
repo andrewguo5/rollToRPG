@@ -79,7 +79,7 @@ public class Driver {
 		    }
 		    if (response.equals("map")) {
 			System.out.println("You take out your trusty scroll and examine the area: \n\n");
-			//System.out.println(returnMap(map));
+			System.out.println(map.returnMap());
 		    }
 		    //if (response.equals("help")
 	    
