@@ -26,7 +26,7 @@ public class Driver {
 	while (map.getplayerList().size() > 1) {
 	    
 	    for (Player temp: map.getplayerList()) {
-		System.out.println("Turn begin");
+		System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\nTurn begin");
 		System.out.println("\n\n");
 		System.out.println( map.getTileMap()[temp.getXcor()][temp.getYcor()].closeUp() ); //examine
 		while (temp.getActionsLeft() > 0) {
@@ -86,7 +86,7 @@ public class Driver {
 			
 		}
 		    
-			
+		System.out.println("Turn is over! Enter any key to continue");
 		String stop = Keyboard.readString();
 	
 		
