@@ -160,29 +160,31 @@ public class Map {
 
     public void lookM( Player richard ) {	
   	String dir = richard.getDir();
-	if ( dir.equals("north") ) 
-	    System.out.println( getTile(richard.getXcor(),richard.getYcor()+1).farAway());
+	int _xcor = richard.getXcor() % 8; 
+	int _ycor = richard.getYcor() % 8;
+	if ( dir.equals("north") )  
+	    System.out.println( getTile(_xcor, _ycor+1).farAway());
 	
 	else if ( dir.equals("east") ) 
-	    System.out.println( getTile(richard.getXcor()+1,richard.getYcor()).farAway());
+	    System.out.println( getTile(_xcor+1, _ycor).farAway());
 	
 	else if ( dir.equals("south") )
-	    System.out.println( getTile(richard.getXcor(),richard.getYcor()-1).farAway());
+	    System.out.println( getTile(_xcor, _ycor-1).farAway());
 	
 	else if ( dir.equals("west") )
-	    System.out.println( getTile(richard.getXcor()-1,richard.getYcor()).farAway());
+	    System.out.println( getTile(_xcor-1, _ycor).farAway());
 	
 	else if ( dir.equals("north east") || dir.equals("northeast") )
-	    System.out.println( getTile(richard.getXcor()+1,richard.getYcor()+1).farAway());
+	    System.out.println( getTile(_xcor+1, _ycor+1).farAway());
 	
 	else if ( dir.equals("north west") || dir.equals("northwest") )
-	    System.out.println( getTile(richard.getXcor()-1,richard.getYcor()+1).farAway());
+	    System.out.println( getTile(_xcor-1, _ycor+1).farAway());
 	
 	else if ( dir.equals("south east")|| dir.equals("southeast") )
-	    System.out.println( getTile(richard.getXcor()+1,richard.getYcor()-1).farAway());
+	    System.out.println( getTile(_xcor+1, _ycor-1).farAway());
 	
 	else if ( dir.equals("south west") || dir.equals("southwest") ) 
-	    System.out.println( getTile(richard.getXcor()-1,richard.getYcor()-1).farAway());
+	    System.out.println( getTile(_xcor-1, _ycor-1).farAway());
     else { System.out.println("Sorry, that's not a direction"); }
 	richard.setLooking(false,"");
     }
@@ -212,6 +214,33 @@ public class Map {
 		    retStr += "-)-";
 		else
 		    retStr += " ] ";
+		
+		//retStr += "[O]";
+	    }
+	    retStr += "\n";
+	}
+	return retStr;
+    }    
+
+    public String returnMap() {
+	String retStr = "";
+	for (Tile[] x : _map) {
+	    for (Tile y : x) {
+		retStr += " [ ";
+		
+		if (y instanceof Mountain) {
+		    retStr += "^";
+		}
+		if (y instanceof Lake) {
+		    retStr += "O";
+		}
+		if (y instanceof Plains) {
+		    retStr += "_";
+		}
+		if (y instanceof Forest) {
+		    retStr += "T";
+		}
+		retStr += " ] ";
 		
 		//retStr += "[O]";
 	    }
