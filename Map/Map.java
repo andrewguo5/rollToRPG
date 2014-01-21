@@ -122,6 +122,8 @@ public class Map {
 	    richard.setHP( i.geth() );
 	}
 	t.setUsed(true);
+	richard.setHarvesting(false);
+	System.out.println("You found a " + i.getN() );
     }
 
     public void moveM( Player richard ) {
@@ -170,17 +172,18 @@ public class Map {
 	else if ( dir.equals("west") )
 	    System.out.println( getTile(richard.getXcor()-1,richard.getYcor()).farAway());
 	
-	else if ( dir.equals("north east") )
+	else if ( dir.equals("north east") || dir.equals("northeast") )
 	    System.out.println( getTile(richard.getXcor()+1,richard.getYcor()+1).farAway());
 	
-	else if ( dir.equals("north west") )
+	else if ( dir.equals("north west") || dir.equals("northwest") )
 	    System.out.println( getTile(richard.getXcor()-1,richard.getYcor()+1).farAway());
 	
-	else if ( dir.equals("south east") )
+	else if ( dir.equals("south east")|| dir.equals("southeast") )
 	    System.out.println( getTile(richard.getXcor()+1,richard.getYcor()-1).farAway());
 	
-	else {
-	    System.out.println( getTile(richard.getXcor()-1,richard.getYcor()-1).farAway());}
+	else if ( dir.equals("south west") || dir.equals("southwest") ) 
+	    System.out.println( getTile(richard.getXcor()-1,richard.getYcor()-1).farAway());
+    else { System.out.println("Sorry, that's not a direction"); }
 	richard.setLooking(false,"");
     }
     

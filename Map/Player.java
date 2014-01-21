@@ -170,6 +170,7 @@ public class Player {
     }
     public void setMoving( boolean b ) {
 	_moving = b; 
+	
     }
     public void setHarvesting( boolean b ) {
 	_harvesting = b; 
