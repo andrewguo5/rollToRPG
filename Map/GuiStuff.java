@@ -71,34 +71,34 @@ public class GuiStuff implements ActionListener{
 	buttonPanel = new JPanel();
 	buttonPanel.setLayout(null);
 	buttonPanel.setLocation(70, 80);
-	buttonPanel.setSize(280, 120);
+	buttonPanel.setSize(280, 500);
 	basePanel.add(buttonPanel);
 
-	//MoveButtons
+	//Buttons
 	examine = new JButton("Examine");
-	examine.setLocation(30,0);
-	examine.setSize(70, 30);
+	examine.setLocation(0,0);
+	examine.setSize(140, 30);
 	examine.addActionListener(this);
 	buttonPanel.add(examine);
 
 	lookafar = new JButton("Look");
-	lookafar.setLocation(30,60);
-	lookafar.setSize(70, 30);
+	lookafar.setLocation(0,40);
+	lookafar.setSize(140, 30);
 	lookafar.addActionListener(this);
 	buttonPanel.add(lookafar);
 
 	move = new JButton("Moving");
-	move.setLocation(0,30);
-	move.setSize(70, 30);
+	move.setLocation(0,80);
+	move.setSize(140, 30);
 	move.addActionListener(this);
 	buttonPanel.add(move);
 
 	attack = new JButton("Attacking");
-	attack.setLocation(60,30);
-	attack.setSize(70, 30);
+	attack.setLocation(0,120);
+	attack.setSize(140, 30);
 	attack.addActionListener(this);
 	buttonPanel.add(attack);
-	
+	/*
 	//Panel to hold Explanations Label///////////////////////////PANEL
 	explanationsPanel = new JPanel();
 	explanationsPanel.setLayout(null);
@@ -111,27 +111,30 @@ public class GuiStuff implements ActionListener{
 	exclamationLabel.setLocation(0,0);
 	exclamationLabel.setSize(120, 30);
 	exclamationLabel.setHorizontalAlignment(0);
-	explanationsPanel.add(exclamationLabel);
+	explanationsPanel.add(exclamationLabel);*/
 
+	/*
 	//LookButtons Panel/////////////////////////////////PANEL
 	expPanel = new JPanel();
 	expPanel.setLayout(null);
 	expPanel.setLocation(70, 240);
 	expPanel.setSize(280, 120);
 	basePanel.add(expPanel);
-
+	*/
 	//LookButtons
-	map = new JButton("/L\\");
-	map.setLocation(30,0);
-	map.setSize(70, 30);
+	map = new JButton("Map");
+	map.setLocation(0,160);
+	map.setSize(140, 30);
 	map.addActionListener(this);
-	expPanel.add(map);
+	//expPanel.add(map);
+	buttonPanel.add(map);
 
-	harvest = new JButton("\\L/");
-	harvest.setLocation(30,60);
-	harvest.setSize(70, 30);
+	harvest = new JButton("Harvest");
+	harvest.setLocation(0,200);
+	harvest.setSize(140, 30);
 	harvest.addActionListener(this);
-	expPanel.add(harvest);
+	//expPanel.add(harvest);
+	buttonPanel.add(harvest);
 	/*
 	lookleft = new JButton("<-L");
 	lookleft.setLocation(0,30);
@@ -151,7 +154,6 @@ public class GuiStuff implements ActionListener{
 	attack.setSize(120, 30);
 	attack.addActionListener(this);
 	//buttonPanel.add(attack);
-
 	*/
 	return basePanel;
     }
@@ -160,26 +162,23 @@ public class GuiStuff implements ActionListener{
     public void actionPerformed(ActionEvent bang) {
 	Object source = bang.getSource();
 	if (source == attack) {
-	    System.out.println("bang!");
+	    System.out.println("Insert attack explanation");
 	}
 	if (source == examine) {
 	    //move(0, 1);
-	    System.out.println("Moved up");
+	    System.out.println("Insert examine explanation");
 	}
 	if (source == lookafar) {
-	    System.out.println ("Moved down" );
+	    System.out.println ("Insert look explanation" );
 	}
 	if (source == move ) {
-	    System.out.println ("Moved left");
-	}
-	if (source == attack) {
-	    System.out.println ("Moved right");
+	    System.out.println ("Insert move explanation");
 	}
 	if (source == map) {
-	    System.out.println ("map" );
+	    System.out.println ("Insert map explanation" );
 	}
 	if (source == harvest) {
-	    System.out.println ("harvest" );
+	    System.out.println ("Insert harvest explanation" );
 	}/*
 	if (source == lookleft ) {
 	    System.out.println ("lookLeft");
@@ -202,7 +201,10 @@ public class GuiStuff implements ActionListener{
     }
     
     public static void main(String[] args) {
+	int i = -2 + 5;
+	System.out.println( i );
 	setup(100);
+	
 	}
 
 }
