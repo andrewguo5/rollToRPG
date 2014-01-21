@@ -109,7 +109,8 @@ public class Driver {
 			map.killPlayer(temp.getName());
 			System.out.println("\n\nYou have died! Oh no. What a tragedy. Oh well.");
 		    }
-		    else {
+		}
+	        else {
 			System.out.println("You are dead! Sit tight.");
 		    }
 		}
