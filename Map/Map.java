@@ -41,9 +41,9 @@ public class Map {
 	for ( Player p : _playerList ) {
 	    int x = (int)(8 * Math.random());
 	    int y = (int)(8 * Math.random());
-	    p.move(x,y);
+	    p.teleport(x,y);
+	    updatePlayer(p);
 	}
-	updatePlayers();
  
     }		
     //ACCESSOR
@@ -57,32 +57,19 @@ public class Map {
     public void addPlayer( Player p ) {
 	_playerList.add( p ); }
 
-    public void updatePlayers() { //creates players at their player coordinates
+    public void updatePlayer( Player p ) { //runs all player actions 	
 	for (Player richard : _playerList) {
-	    
-	    int _newXcor = richard.getMX();
-	    int _newYcor = richard.getMY();
-	    Player freshRichard = richard;
-	    
-	    _players[_newXcor][_newYcor] = new Player(richard.getName());
-	    _players[_newXcor][_newYcor] = freshRichard;
-	    
-	    setNull( richard.getXcor(), richard.getYcor() );
-	    
-	    _map[richard.getXcor()][richard.getYcor()].setisPlayerHere( false );
-	    _map[_newXcor][_newYcor].setisPlayerHere( true );
-
-	    richard.setXcor( _newXcor );
-	    richard.setYcor( _newYcor );
-
+	    if ( richard.getMoving() ) {
+		moveM(richard);
+	    }
 	    if ( richard.getAttacking() ) {
-		for ( Player p : _playerList ) {
-		    if (p.getXcor() == richard.getXcor() && p.getYcor() == richard.getYcor() && p.getName() != richard.getName() ) 
-			p.setHP( p.getHP() - richard.getStr()); 
-		}
-		richard.setAttacking(false);
-		
-	    
+		attackM(richard);
+	    }
+	    if ( richard.getLooking() ) {
+		lookM(richard);
+	    }
+	    if ( richard.getHarvesting() ) {
+		harvestM(richard);
 	    }
 	}
     }
@@ -124,23 +111,85 @@ public class Map {
 	    }
 	}
     }
-    //Other player methods		
-    public String lookAfar( Player p, int dir ) {
-	if ( dir == 0 ) 
-	    return getTile(p.getXcor(),p.getYcor()+1).farAway();
 
-	else if ( dir == 1 ) 
-	   return getTile(p.getXcor()+1,p.getYcor()).farAway();
-
-	else if ( dir == 2 )
-	    return getTile(p.getXcor(),p.getYcor()-1).farAway();
-
-	else
-	    return getTile(p.getXcor()-1,p.getYcor()).farAway();
-	
+   
+    public void harvestM( Player richard ) {
+	int x = richard.getXcor();
+	int y = richard.getYcor();
+	Tile t = _map[x][y];
+	Item i = t.getItem();
+	if ( ! t.getUsed() ) {
+	    richard.setStr( i.gets() );
+	    richard.setDex( i.getd() );
+	    richard.setFth( i.getf() );
+	    richard.setInt( i.geti() );
+	    richard.setPer( i.getp() );
+	    richard.setCon( i.getc() );
+	    richard.setHP( i.geth() );
+	}
+	t.setUsed(true);
     }
-	
 
+    public void moveM( Player richard ) {
+
+		int _newXcor = richard.getMX() % 8;
+		int _newYcor = richard.getMY() % 8;
+		Player freshRichard = richard;
+		
+		_players[_newXcor][_newYcor] = new Player(richard.getName());
+		_players[_newXcor][_newYcor] = freshRichard;
+		
+		setNull( richard.getXcor(), richard.getYcor() );
+		
+		_map[richard.getXcor()][richard.getYcor()].setisPlayerHere( false );
+		_map[_newXcor][_newYcor].setisPlayerHere( true );
+	    
+		richard.setXcor( _newXcor );
+		richard.setYcor( _newYcor );
+		richard.setMoving(false);
+    }
+
+    public void attackM( Player richard ) {
+	String target = "";
+	int dmg = 0;
+	for ( Player p : _playerList ) {
+	    if (p.getXcor() == richard.getXcor() && p.getYcor() == richard.getYcor() && p.getName() != richard.getName() ) { 
+		dmg = richard.getStr();
+		p.setHP( p.getHP() - dmg);
+		target += p.getName() + " ";}
+	}
+	richard.setAttacking(false);
+	System.out.println("You attacked " + target + "for " + dmg + " hp.");  
+    }
+
+    public void lookM( Player richard ) {	
+  	String dir = richard.getDir();
+	if ( dir.equals("north") ) 
+	    System.out.println( getTile(richard.getXcor(),richard.getYcor()+1).farAway());
+	
+	else if ( dir.equals("east") ) 
+	    System.out.println( getTile(richard.getXcor()+1,richard.getYcor()).farAway());
+	
+	else if ( dir.equals("south") )
+	    System.out.println( getTile(richard.getXcor(),richard.getYcor()-1).farAway());
+	
+	else if ( dir.equals("west") )
+	    System.out.println( getTile(richard.getXcor()-1,richard.getYcor()).farAway());
+	
+	else if ( dir.equals("north east") )
+	    System.out.println( getTile(richard.getXcor()+1,richard.getYcor()+1).farAway());
+	
+	else if ( dir.equals("north west") )
+	    System.out.println( getTile(richard.getXcor()-1,richard.getYcor()+1).farAway());
+	
+	else if ( dir.equals("south east") )
+	    System.out.println( getTile(richard.getXcor()+1,richard.getYcor()-1).farAway());
+	
+	else {
+	    System.out.println( getTile(richard.getXcor()-1,richard.getYcor()-1).farAway());}
+	richard.setLooking(false,"");
+    }
+    
     public String toString() {
 	String retStr = "";
 	for (Tile[] x : _map) {
