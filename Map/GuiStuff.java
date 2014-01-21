@@ -189,11 +189,11 @@ public class GuiStuff implements ActionListener{
     }/*
 	*/
     public static void setup(int _temp) {
-        JFrame frame = new JFrame("Player UI");
+        JFrame frame = new JFrame("Instructions");
 	
 	GuiStuff gui = new GuiStuff(_temp);
 	frame.setContentPane(gui.createContentPane());
-	frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
+	//frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
 	
 	frame.setSize(280, 420);
 	frame.setResizable(false);

@@ -26,7 +26,7 @@ public class Driver {
 	while (map.getplayerList().size() > 1) {
 	    
 	    for (Player temp: map.getplayerList()) {
-		System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\nTurn begin");
+		System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\nTurn begin: " + temp.getName());
 		System.out.println("\n\n");
 		System.out.println( map.getTileMap()[temp.getXcor()][temp.getYcor()].closeUp() ); //examine
 		while (temp.getActionsLeft() > 0) {
@@ -52,7 +52,7 @@ public class Driver {
 			map.updatePlayer(temp);
 			temp.setActionsLeft(temp.getActionsLeft() - 1 );
 		    }
-		    if (response.equals("move") ) {
+		    else if (response.equals("move") ) {
 			String direction = "";
 			System.out.println("What direction do you want to move in?");
 			direction = (Keyboard.readString()).toLowerCase();
@@ -67,26 +67,44 @@ public class Driver {
 			map.updatePlayer(temp);
 			temp.setActionsLeft(temp.getActionsLeft()-1);
 		    }
-		    if (response.equals("harvest") ) {
-			temp.setHarvesting(true);
-			map.updatePlayer(temp);
-			temp.setActionsLeft(temp.getActionsLeft() - 3);
+		    else if (response.equals("harvest") ) {
+			if (temp.getActionsLeft() < 3) {
+			    System.out.println("There isn't enough time left to do that. Let's do something else.");
+			}
+			else {
+			    temp.setHarvesting(true);
+			    System.out.println("\n\n");
+			    map.updatePlayer(temp);
+			    temp.setActionsLeft(temp.getActionsLeft() - 3);
+			}
 		    }
-		    if (response.equals("attack") ) {
-			temp.setAttacking(true);
-			map.updatePlayer(temp);
-			temp.setActionsLeft(temp.getActionsLeft() -2);
+		    else if (response.equals("attack") ) {
+			if (temp.getActionsLeft() < 2) {
+			    System.out.println("Let's do that when it's earlier. It'll take forever to swing your sword across this whole tile.");
+			}
+			else {
+			    temp.setAttacking(true);
+			    System.out.println("\n\n");
+			    map.updatePlayer(temp);
+			    temp.setActionsLeft(temp.getActionsLeft() -2);
+			}
 		    }
-		    if (response.equals("map")) {
+		    else if (response.equals("map")) {
 			System.out.println("You take out your trusty scroll and examine the area: \n\n");
+			System.out.println("\n\n");
 			System.out.println(map.returnMap());
-		    }
-		    //if (response.equals("help")
-	    
+			System.out.println("\nN ->");
 			
+		    }
+		    else if (response.equals("help")) {
+			GuiStuff.setup(temp.getHP());
+		    }
+		    else {
+			System.out.println("\n\nThis game is very sensitive to spelling. It had a traumatizing childhood experience. Leave out spaces and ' when entering commands!");
+		    }
 		}
 		    
-		System.out.println("Turn is over! Enter any key to continue");
+		System.out.println("\n\nTurn is over! Enter any key to continue");
 		String stop = Keyboard.readString();
 	
 		

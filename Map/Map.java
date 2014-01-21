@@ -128,9 +128,9 @@ public class Map {
 
     public void moveM( Player richard ) {
 
-		int _newXcor = richard.getMX() % 8;
-		int _newYcor = richard.getMY() % 8;
-		Player freshRichard = richard;
+	int _newXcor = (richard.getMX()+80) % 8;
+	int _newYcor = (richard.getMY()+80) % 8;
+	Player freshRichard = richard;
 		
 		_players[_newXcor][_newYcor] = new Player(richard.getName());
 		_players[_newXcor][_newYcor] = freshRichard;
@@ -163,28 +163,28 @@ public class Map {
 	int _xcor = richard.getXcor() % 8; 
 	int _ycor = richard.getYcor() % 8;
 	if ( dir.equals("north") )  
-	    System.out.println( getTile(_xcor, _ycor+1).farAway());
+	    System.out.println( getTile(_xcor, (_ycor+1)%8 ).farAway());
 	
 	else if ( dir.equals("east") ) 
-	    System.out.println( getTile(_xcor+1, _ycor).farAway());
+	    System.out.println( getTile((_xcor+1)%8, _ycor).farAway());
 	
 	else if ( dir.equals("south") )
-	    System.out.println( getTile(_xcor, _ycor-1).farAway());
+	    System.out.println( getTile(_xcor, (_ycor+7)%8).farAway());
 	
 	else if ( dir.equals("west") )
-	    System.out.println( getTile(_xcor-1, _ycor).farAway());
+	    System.out.println( getTile((_xcor+7)%8, _ycor).farAway());
 	
 	else if ( dir.equals("north east") || dir.equals("northeast") )
-	    System.out.println( getTile(_xcor+1, _ycor+1).farAway());
+	    System.out.println( getTile((_xcor+1)%8, (_ycor+1)%8).farAway());
 	
 	else if ( dir.equals("north west") || dir.equals("northwest") )
-	    System.out.println( getTile(_xcor-1, _ycor+1).farAway());
+	    System.out.println( getTile((_xcor+7)%8, (_ycor+1)%8).farAway());
 	
 	else if ( dir.equals("south east")|| dir.equals("southeast") )
-	    System.out.println( getTile(_xcor+1, _ycor-1).farAway());
+	    System.out.println( getTile((_xcor+1)%8, (_ycor+7)%8).farAway());
 	
 	else if ( dir.equals("south west") || dir.equals("southwest") ) 
-	    System.out.println( getTile(_xcor-1, _ycor-1).farAway());
+	    System.out.println( getTile((_xcor+7)%8, (_ycor+7)%8).farAway());
     else { System.out.println("Sorry, that's not a direction"); }
 	richard.setLooking(false,"");
     }
@@ -252,7 +252,7 @@ public class Map {
     public static void main (String[] args) {
 	Map xyzz = new Map("fred","jon","tom");
 	System.out.println( xyzz );
-
+	System.out.println(-1%8);
   
     }
 
