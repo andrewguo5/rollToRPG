@@ -104,6 +104,16 @@ public class Player {
 	_moveX = x;
 	_moveY = y;
     }	
-    
 
+    public void Harvest( Item I ) {
+	_str += I.gets();
+	_dex += I.getd();
+	_fth += I.getf();
+	_int += I.geti();
+	_per += I.getp();
+	_con += I.getc();
+	HP += I.geth();
+    }
+   
+    
 }

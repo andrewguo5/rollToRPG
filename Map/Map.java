@@ -130,7 +130,6 @@ public class Map {
 	    return getTile(p.getXcor()-1,p.getYcor()).farAway();
 	
     }
-    //    public void Harvest( Player p ) {
 	
 
     public String toString() {
