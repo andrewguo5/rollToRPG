@@ -137,16 +137,16 @@ public class Player {
 	else if ( dir.equals("west") )
 	    x = -1;
 	    
-	else if ( dir.equals("north east") ){
+	else if ( dir.equals("north east")||dir.equals("northeast") ){
 	    x = 1;
 	    y = 1; 
 	}
 	            
-	else if ( dir.equals("north west") ){
+	else if ( dir.equals("north west") ||dir.equals("northwest")){
 	    x = -1;
 	    y = 1;
 	} 
-	else if ( dir.equals("south east") ){
+	else if ( dir.equals("south east")||dir.equals("southeast") ){
 	    x = 1;
 	    y = -1; 
 	}
