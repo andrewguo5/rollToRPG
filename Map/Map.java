@@ -7,6 +7,8 @@ public class Map {
     private Player[][] _players = new Player[8][8];
     private ArrayList<Player> _playerList = new ArrayList<Player>(); 
     private ArrayList<Player> _deadPlayerList = new ArrayList<Player>();
+    private int exX;
+    private int exY;
 
     public Map( String N1, String N2, String N3 ){
     
@@ -28,8 +30,8 @@ public class Map {
 		}
 	    }
 	}
-	int exX = (int)(Math.random() * 8);
-	int exY = (int)(Math.random() * 8);
+	exX = (int)(Math.random() * 8);
+	exY = (int)(Math.random() * 8);
 	_map[exX][exY].setEx(true);
 	Item excalibur = new Item("excalibur",100000,0,0,0,0,0,100000);
 	_map[exX][exY].setItem( excalibur );
@@ -49,6 +51,10 @@ public class Map {
  
     }		
     //ACCESSOR
+    public int getExX() { return exX; }
+    public int getExY() { return exY; }
+
+
     public ArrayList<Player> getplayerList() {
 	return _playerList;
     }

@@ -108,7 +108,40 @@ public class Driver {
 		    temp.setHunger( temp.getHunger() - 1);
 		    System.out.println("\n");
 		    
-		    if (temp.getHunger() < 3 && temp.getHunger() >= 0) 
+		    if ( temp.getFth() > (int)(Math.random() * 100) ) {
+			String exRet = "You sense a strong magical force from the ";
+			int xDiff = temp.getXcor() - map.getExX();
+			int yDiff = temp.getYcor() - map.getExY(); 
+			
+			if ( xDiff > 0 && yDiff == 0 ) 
+			    exRet += "east.";
+			else if ( xDiff < 0 && yDiff == 0 )
+			    exRet += "west.";
+			else if ( xDiff == 0 && yDiff > 0 ) 
+			    exRet += "north.";
+			else if ( xDiff == 0 && yDiff < 0 )
+			    exRet += "south.";
+			else if ( xDiff > 0 && yDiff > 0 )
+			    exRet += "north east.";
+			else if ( xDiff < 0 && yDiff > 0 ) 
+			    exRet += "north west.";
+			else if ( xDiff > 0 && yDiff < 0 )
+			    exRet += "south east.";
+			else
+			    exRet += "south west.";
+			System.out.println(exRet);
+		    }	    
+
+
+		    
+		    System.out.println("\n\n");
+
+		    if ( temp.getHunger() > 5 ) { 
+			temp.setHP( temp.getHP() + 10 );
+			temp.setHunger(5);
+		    }
+		    
+		    else if (temp.getHunger() < 3 && temp.getHunger() >= 0) 
 			System.out.println("Watch out, you're close to starvation. Go find some food!");
 
 		    else if (temp.getHunger() < 0) {
