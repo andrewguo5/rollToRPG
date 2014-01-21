@@ -1,3 +1,5 @@
+import java.lang.Math;
+
 public class Lake extends Tile {
 
     private int Type = 1;
