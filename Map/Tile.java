@@ -29,6 +29,11 @@ public abstract class Tile {
     public Item getItem() { return _item; }
 
     //Mutator
+    public void setChance(double d) {
+	chance = d;
+    }
+
+    
     public void setItem( Item i ) {
 	_item = i;
     }
