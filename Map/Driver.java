@@ -156,7 +156,7 @@ public class Driver {
 
 		    else if (temp.getHunger() < 0) {
 			System.out.println("Oh no! You're starving! You take " + (temp.getHunger()*10) + " damage due to hunger pangs.");
-			temp.setHP(temp.getHP() - (temp.getHunger() * 10));
+			temp.setHP(temp.getHP() + (temp.getHunger() * 10));
 		    }
 		    
 		    if (temp.getHP() <= 0) {
