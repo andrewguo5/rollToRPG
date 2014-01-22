@@ -111,7 +111,7 @@ public class Driver {
 		    
 		    int sDiffX = temp.getXcor() - map.getsX();
 		    int sDiffY = temp.getYcor() - map.getsY();
-		    if ( Math.abs(sDiffX) <= 2 && Math.abs(sDiffY) <= 2 ) {
+		    if ( Math.abs(sDiffX) <= 1 && Math.abs(sDiffY) <= 1 ) {
 			System.out.println("You feel a strange sense of foreboding, something sinister is lurking in the area. Be weary of where you step.");
 		    }
 
