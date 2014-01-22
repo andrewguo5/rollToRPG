@@ -219,7 +219,9 @@ public class Map {
 	int x = (int)(3* Math.random() - 1);
 	int y = (int)(3* Math.random() - 1);
 	sX += x;
+	sX %= 8;
 	sY += y;
+	sY %= 8;
 	_map[sX][sY].setSlender(true);
     }
 
