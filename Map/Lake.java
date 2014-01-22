@@ -21,6 +21,8 @@ public class Lake extends Tile {
 	String ret = "It appears to be a small lake in the distance.";
 	if (_isPlayerHere) 
 	    ret += "You see a lone figure stopping by for a drink in the distance, is it a friend or a foe?";
+	else if (slender) 
+	    ret +=  " There seems to be a faceless tall figure walking out of the water. He doesn't seem to have noticed you yet.";
 	return ret;
     }
 

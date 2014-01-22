@@ -20,6 +20,8 @@ public class Forest extends Tile {
 	String ret = "In the distance, it looks like the beginnings of a large forest.";
 	if (_isPlayerHere) 
 	    ret += " You hear some twigs snapping somewhere in front of you, let's hope you're ready for an encounter.";
+	else if ( slender )
+	    ret += " You see a tall lone figure walking amidst the trees and feel a sudden urge to run away.";
 	return ret;
     }
 

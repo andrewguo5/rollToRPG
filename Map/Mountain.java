@@ -20,6 +20,8 @@ public class Mountain extends Tile {
 	String ret = "A tall mountain looms in the distance.";
 	if ( _isPlayerHere )
 	    ret += " You see a shadow dancing in the fog of the mountain, moving in and out of the impassive boulders."; 
+	else if (slender) 
+	    ret += " You see the air shimmer in between two boulders, and feel a sudden sense of dread. Might be a good time to run.";
 	return ret;
     }
 

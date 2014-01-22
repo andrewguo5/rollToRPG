@@ -19,6 +19,8 @@ public class Plains extends Tile {
 	String ret ="There lies a grassy plain.";
 	if (_isPlayerHere) 
 	    ret += " You notice a warrior out in the open. Now is your chance to strike.";
+	else if (slender)
+	    ret += " You see a lone dark figure out in the open. There's something eery about him. You might want to get out of here before he notices you.";
 	return ret;
     }
 
