@@ -40,6 +40,12 @@ public class Driver {
 			System.out.println("'move'- Run blindly into a neighboring tile (Costs 1 move)");
 			System.out.println("'help'- Open help panel");
 			System.out.println("'map'- Open map");
+			int sDiffX = temp.getXcor() - map.getsX();
+                	int sDiffY = temp.getYcor() - map.getsY();
+                 	if ( Math.abs(sDiffX) <= 1 && Math.abs(sDiffY) <= 1 ) {
+                            System.out.println("\nYou feel a strange sense of foreboding, something sinister is lurking in the area. Be weary of where you step.\n");
+                 }
+			
 			String response = Keyboard.readString();
 			if (response.equals("look") ) {
 			    String direction = "";
@@ -109,12 +115,6 @@ public class Driver {
 		    temp.setHunger( temp.getHunger() - 1);
 		    System.out.println("\n");
 		    
-		    int sDiffX = temp.getXcor() - map.getsX();
-		    int sDiffY = temp.getYcor() - map.getsY();
-		    if ( Math.abs(sDiffX) <= 1 && Math.abs(sDiffY) <= 1 ) {
-			System.out.println("You feel a strange sense of foreboding, something sinister is lurking in the area. Be weary of where you step.");
-		    }
-
 
 		    if ( temp.getFth() > (int)(Math.random() * 100) ) {
 			String exRet = "You sense a strong magical force from the ";
