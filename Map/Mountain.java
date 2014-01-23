@@ -7,7 +7,7 @@ public class Mountain extends Tile {
 	if (100* Math.random() < 1 ) 
 	    _item = new Item("ancient knowledge (+100 str).", 100,0,0,0,0,0,0,0);
 	else {
-	    if ( (3* Math.random()) > 1 ) 
+	    if ( (5* Math.random()) > 1 ) 
 		_item = new Item("pick axe (+15 str).", 15,0,0,0,0,0,0,0);
 	    else 
 		_item = new Item("dwarf potion (+30 str).",30,0,0,0,0,0,0,0);
