@@ -5,10 +5,10 @@ public class Forest extends Tile {
     
     public Forest() {
 	super();
-	if ( (3* Math.random()) > 1 ) 
+	if ( (5* Math.random()) < 1 ) 
 	    _item = new Item("cool stick (+15 dex).", 0, 15, 0, 0, 0, 0, 0, 0);
 	else 
-	    _item = new Item("half a squirrel (mm tasty).",0,0,0,0,0,0,0,4);
+	    _item = new Item("half a squirrel (mm tasty).",0,0,0,0,0,0,0,10);
     }
 	
 
