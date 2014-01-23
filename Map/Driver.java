@@ -138,7 +138,7 @@ public class Driver {
 			else if ( xDiff < 0 && yDiff < 0 )
 			    exRet += "south west.";
 			else {
-			    exRet = "You feel an incredible surge of power in your veins. A lightning bolt strikes the ground before your feet. You've found it!";}
+			    exRet = "You feel an incredible surge of power in your veins. A lightning bolt strikes the ground before your feet. You've found the it! Excalibur (All stats maxed).";}
 			System.out.println(exRet);
 		    }	    
 
@@ -146,14 +146,22 @@ public class Driver {
 		    
 		    System.out.println("\n\n");
 
-		    if ( temp.getHunger() > 5 ) { 
+		    if ( temp.getHunger() > 10 ) { 
+		    	if ( temp.getHP() < 100 ) {
 			temp.setHP( temp.getHP() + 10 );
-			temp.setHunger(5);
+			System.out.println("You've eaten well recently. You have restored a bit of health")
+			temp.setHP( (temp.getHP() + 500) % 100);
+		    	}
+			temp.setHunger(10);
 		    }
 		    
-		    else if (temp.getHunger() < 3 && temp.getHunger() >= 0) 
-			System.out.println("Watch out, you're close to starvation. Go find some food!");
-
+		    else if (temp.getHunger() < 6 && temp.getHunger() >= 2) {
+			System.out.println("Your stomach rumbles. You haven't eaten in ages. You're hungry. Find food in a forest or lake.");
+		    }
+		    else if (temp.getHunger() < 2 && temp.getHunger() >= 0) {
+			System.out.println("You are very hungry. You may start starving if you don't find food fast. Harvest forest and lake tiles for food.");
+			temp.setHP(temp.getHP() + (temp.getHunger() * 10));
+		    }
 		    else if (temp.getHunger() < 0) {
 			System.out.println("Oh no! You're starving! You take " + (temp.getHunger()*10) + " damage due to hunger pangs.");
 			temp.setHP(temp.getHP() + (temp.getHunger() * 10));
@@ -169,7 +177,7 @@ public class Driver {
 		    }
 		}
 	        else {
-			System.out.println("You are dead! Sit tight.");
+			System.out.println(temp.getName() + ", you are dead! Sit tight. Your turn will end immediately.");
 		    }
 		System.out.println("\n\nTurn is over! Enter any key to continue");
 		String stop = Keyboard.readString();
