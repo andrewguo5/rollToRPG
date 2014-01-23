@@ -5,7 +5,7 @@ public class Plains extends Tile {
 
     public Plains() {
 	super();
-	if ( (3* Math.random()) > 1 ) 
+	if ( (5* Math.random()) > 1 ) 
 	    _item = new Item("rough grass (+10 con, +5 fth).",0,0,0,5,0,10,0,0);
 	else 
 	    _item = new Item("buffalo horn filled with eucalyptus juice (+20 con, +5 fth).",0,0,0,5,0,20,0,0);
