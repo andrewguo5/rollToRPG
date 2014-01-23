@@ -6,12 +6,14 @@ public class Lake extends Tile {
     //name, str, dex, int, fth, per, con, hp
     public Lake() {
 	super();
-	double random = 6*Math.random();
-	if ( random > 4 ) 
+	double random = 10*Math.random();
+	if ( random > 9 ) 
 	    _item = new Item("trident (+10 int, +5 per).",0,0,10,0,5,0,0,0);
 	else if ( random > 1 )
-	    _item = new Item("delicious fish (mm tasty).",0,0,0,0,0,0,0,4);
+	    _item = new Item("delicious fish (mm tasty).",0,0,0,0,0,0,0,10);
+	else {
 	    _item = new Item("fancy treasure chest (+20 int, +5 per).",0,0,20,0,5,0,0,0);
+	}
     }
     
     public String closeUp() {
