@@ -12,7 +12,7 @@ public class Player {
 
     public int _harvestCtr = 0;
     protected double _chance = .5;
-    protected int _hunger = 5;
+    protected int _hunger = 10;
     protected int _actionsLeft;
     protected String _name;
     protected int HP;
