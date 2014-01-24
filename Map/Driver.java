@@ -8,6 +8,7 @@ public class Driver {
     }
 
     public static void main (String[] args) {
+	System.out.println("In the year 20XX, philosophers around the world wrestled with impossible questions- where do they come from? Who created the world? Perhaps there are an infinite number universes. Each decision made, each frame of reality introduces randomness that can spawn multiple eventualities from the same starting conditions. A few, reasoned, that their existence was created by superior life forms, a simulation of the universe run by super computers of unimaginable power. \n\n In a dimly lit studio, a student frantically punches lines into code for a computer science project. Unbeknowst to him, an impossible and perplexing world was spawned through his code and imagination. \n\n Trapped in this senseless virtual reality, three yet-to-be named heros fight to the death for supremacy over an infinitely large land. Armed to the teeth with sharp sticks and dead lizards, these mysterious figures struggle for supremacy in an unforgiving, nonexistant world.\n\n");
 	System.out.print("Enter the name of player1: ");
 	String name1 = Keyboard.readString();
 	System.out.print("\nEnter the name of player2: ");
@@ -23,8 +24,8 @@ public class Driver {
 	    name3 = Keyboard.readString();
 	}	
 	Map map = new Map(name1, name2, name3);
-	
-	while (map.getplayerList().size() > 1) {
+	boolean _gameOver = false;
+	while (!_gameOver) {
 	    
 	    for (Player temp: map.getplayerList()) {
 		if (temp.getHP() > 0) {
@@ -175,6 +176,7 @@ public class Driver {
 		    }
 		    else if (map.getTileMap()[temp.getXcor()][temp.getYcor()].getSlender() ){
 			map.killPlayer(temp.getName());
+			temp.setHP(-99);
 			System.out.println("\n\nYou feel the darkness washing over you as you freeze in fear. As the faceless man walks towards you you realize it's the end: you have died.");   
 		    }
 		}
@@ -183,22 +185,24 @@ public class Driver {
 		    }
 		System.out.println("\n\nTurn is over! Enter any key to continue");
 		String stop = Keyboard.readString();
-		int playersLeft = (Map.getplayerList()).size() - (Map.getDeadPlayerList()).size());
-		if (playersLeft = 1) {
+		int playersLeft = (map.getplayerList()).size() - (map.getDeadPlayerList()).size();
+		if (playersLeft == 1) {
 			System.out.println("You are the last one standing, " + temp.getName() + "! Congrats, you win.");
-			break;
+			_gameOver = true;
 		}
 		else if (playersLeft < 1) {
 			System.out.println("Everyone is dead. Victory goes to the crows.");
-			break;
-		}
+			_gameOver = true;
 		}
 	    }
+    }
 		    
 	    map.updateSlender();
 		
-	        
-	}
+	    System.out.println("There is no real ending. It's just teh place where you stop the story.");
+	    System.out.println("--Frank Herbert");
     }
 }
+
+//}
 
