@@ -65,6 +65,7 @@ public class Map {
     public ArrayList<Player> getplayerList() {
 	return _playerList;
     }
+    public ArrayList<Player> getDeadPlayerList() { return _deadPlayerList; }
     public Tile[][] getTileMap() { return _map; }
     public Player[][] getPlayerMap() { return _players; }
     
