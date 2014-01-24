@@ -150,9 +150,9 @@ public class Map {
 	    richard.setHarvestCtr(0);
 	    richard.setChance(.5);
 	}
-	else
+	else {
 	    richard.setHarvestCtr( hc + 1 );
-	    System.out.println("After rummaging through your surroundings you find nothing of use.");
+	    System.out.println("After rummaging through your surroundings you find nothing of use."); }
 	richard.setHarvesting(false);
         
     }
