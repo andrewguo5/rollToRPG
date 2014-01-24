@@ -199,7 +199,7 @@ public class Driver {
 		    
 	    map.updateSlender();
 		
-	    System.out.println("There is no real ending. It's just teh place where you stop the story.");
+	    System.out.println("There is no real ending. It's just the place where you stop the story.");
 	    System.out.println("--Frank Herbert");
     }
 }
