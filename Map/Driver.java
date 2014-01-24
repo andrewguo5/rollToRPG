@@ -183,6 +183,16 @@ public class Driver {
 		    }
 		System.out.println("\n\nTurn is over! Enter any key to continue");
 		String stop = Keyboard.readString();
+		int playersLeft = (Map.getplayerList()).size() - (Map.getDeadPlayerList()).size());
+		if (playersLeft = 1) {
+			System.out.println("You are the last one standing, " + temp.getName() + "! Congrats, you win.");
+			break;
+		}
+		else if (playersLeft < 1) {
+			System.out.println("Everyone is dead. Victory goes to the crows.");
+			break;
+		}
+		}
 	    }
 		    
 	    map.updateSlender();
