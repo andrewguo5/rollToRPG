@@ -32,6 +32,8 @@ public class Driver {
 		    System.out.println("\n\n");
 		    System.out.println( map.getTileMap()[temp.getXcor()][temp.getYcor()].closeUp() ); //examine
 		    temp.setActionsLeft(3);
+		    temp.setXcor((temp.getXcor()+80)%8);
+		    temp.setYcor((temp.getYcor()+80)%8);
 		    while (temp.getActionsLeft() > 0) {
 			System.out.println("\n\n\nWhat do you want to do? (Actions left: " + temp.getActionsLeft() + " )" );
 			System.out.println("'look'- Look at a neighboring tile (Costs 1 move)");
