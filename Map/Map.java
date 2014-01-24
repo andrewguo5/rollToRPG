@@ -133,8 +133,11 @@ public class Map {
 	int y = richard.getYcor();
 	Tile t = _map[x][y];
 	Item i = t.getItem();
-    
-	if ( ! t.getUsed() && t.getChance() > Math.random() ) {
+	int hc = richard.getHarvestCtr();
+	if ( hc >= 2 ) { richard.setChance(1); }
+	else if ( hc >= 1 ) { richard.setChance(.75); }
+		
+	if ( ! t.getUsed() && richard.getChance() > Math.random() ) {
 	    richard.setStr(richard.getStr() + i.gets() );
 	    richard.setDex(richard.getDex() + i.getd() );
 	    richard.setFth(richard.getFth() + i.getf() );
@@ -144,8 +147,11 @@ public class Map {
 	    richard.setHP(richard.getHP() + i.geth() );
 	    t.setUsed(true);
 	    System.out.println("You found a(n) " + i.getN() );
+	    richard.setHarvestCtr(0);
+	    richard.setChance(.5);
 	}
-	else 
+	else
+	    richard.setHarvestCtr( hc + 1 );
 	    System.out.println("After rummaging through your surroundings you find nothing of use.");
 	richard.setHarvesting(false);
         

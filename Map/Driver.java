@@ -149,7 +149,7 @@ public class Driver {
 		    if ( temp.getHunger() > 10 ) { 
 		    	if ( temp.getHP() < 100 ) {
 			temp.setHP( temp.getHP() + 10 );
-			System.out.println("You've eaten well recently. You have restored a bit of health")
+			System.out.println("You've eaten well recently. You have restored a bit of health");
 			temp.setHP( (temp.getHP() + 500) % 100);
 		    	}
 			temp.setHunger(10);
